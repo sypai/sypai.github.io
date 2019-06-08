@@ -99,6 +99,7 @@ ga('send', 'pageview');
 
 <!-- Site Title
 ================================================== -->
+    {% if page.layout == "page"%}
 <div class="mainheading">
     <h1 class="sitetitle">{{ site.name }}</h1>
     <p class="lead">
@@ -109,6 +110,7 @@ ga('send', 'pageview');
         <!--<span class="txt-type" data-wait="1500" data-words='["Hello, World!"]'></span>-->
     <!--</p>-->
 </div>
+    {% endif %}
 
 <!-- Content
 ================================================== -->
