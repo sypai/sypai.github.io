@@ -11,12 +11,14 @@
 {% seo %}
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
+
 <link href="{{ site.baseurl }}/assets/css/screen.css" rel="stylesheet">
 
 <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
 
-<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+    <link href="{{ site.baseurl }}/assets/css/loader.css" rel="stylesheet">
+
+    <script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
 
 </head>
 
@@ -34,6 +36,16 @@ ga('send', 'pageview');
 
 {% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
 <body class="{{layout}}">
+
+<!--LOADERS-->
+<div class="load">
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div></div>
+
+<div class="load_main">
 	<!-- defer loading of font and font awesome -->
 	<noscript id="deferred-styles">
 		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
@@ -133,7 +145,7 @@ ga('send', 'pageview');
 	</div>
 </div>
 {% endif %}
-    
+
 </div>
 
 <!-- Categories Jumbotron
@@ -167,9 +179,9 @@ ga('send', 'pageview');
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                    {{ site.name }} © {{ site.time | date: "%Y" }}  
+                    {{ site.name }} © {{ site.time | date: "%Y" }}
             </div>
-            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">
                 <!--<a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a>-->
                 <a href="#">
                     <i class="fab fa-twitter"></i>
@@ -188,14 +200,14 @@ ga('send', 'pageview');
 ================================================== -->
 
 </div> <!-- /.site-content -->
-
+</div>
 <!-- Scripts
 ================================================== -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="{{ site.baseurl }}/assets/js/loader.js"> </script>
 <script src="{{ site.baseurl }}/assets/js/mediumish.js"></script>
 
 {% if site.lazyimages == "enabled" %}
@@ -207,6 +219,7 @@ ga('send', 'pageview');
 {% if page.layout == 'post' %}
 <script id="dsq-count-scr" src="//{{site.disqus}}.disqus.com/count.js"></script>
 {% endif %}
-    <script type="text/javascript" src="{{ site.baseurl }}/assets/js/typewriter.js"> </script>
+    <!--<script type="text/javascript" src="{{ site.baseurl }}/assets/js/typewriter.js"> </script>-->
+
 </body>
 </html>

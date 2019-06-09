@@ -59,6 +59,7 @@ section {
     margin-bottom: 20px;
 }
 
+
 section.recent-posts {
     margin-bottom: 0;
 }
@@ -988,4 +989,18 @@ blockquote .small {
     font-size: 80%;
     color: brown;
     text-align: right;
+}
+
+.load_main{
+    opacity: 0;
+    display: none;
+    transition: opacity 2s ease-in;
+}
+
+.load{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
 }
