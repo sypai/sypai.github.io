@@ -5,17 +5,165 @@
     <description>Disciplined &amp; Relentless</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 09 Jun 2019 22:59:27 +0530</pubDate>
-    <lastBuildDate>Sun, 09 Jun 2019 22:59:27 +0530</lastBuildDate>
+    <pubDate>Thu, 20 Jun 2019 23:55:09 +0530</pubDate>
+    <lastBuildDate>Thu, 20 Jun 2019 23:55:09 +0530</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
-        <title>Google Summer of Code, Week 1: The Beginning!</title>
-        <description>
+        <title>GSoC [01], Week 1: coding.begin() </title>
+        <description>&lt;p&gt;The first of the thirteen weeks has ended and I have started working
+ on my project &lt;strong&gt;co-oCCur: High-speed subtitle synchronization&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Github  Repo: 
+ &lt;a href=&quot;https://github.com/sypai/co-oCCur&quot; target=&quot;_blank&quot;&gt;
+ sypai/co-oCCur
+ &lt;/a&gt;&lt;/p&gt;
+
 </description>
-        <pubDate>Sat, 01 Jun 2019 00:00:00 +0530</pubDate>
-        <link>http://localhost:4000/GSoC-Week1-The-Beginning/</link>
-        <guid isPermaLink="true">http://localhost:4000/GSoC-Week1-The-Beginning/</guid>
+        <pubDate>Tue, 04 Jun 2019 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/GSoC-01-Week-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/GSoC-01-Week-1/</guid>
+        
+        
+        <category>GSoC</category>
+        
+      </item>
+    
+      <item>
+        <title>GSoC [00]: Bonding period ends &amp; Coding begins! </title>
+        <description>&lt;p&gt;A month-long community bonding period ended on 27 May,
+commencing the official coding period. In this post, I would
+like to share my GSoC 2019 community bonding experience
+with CCExtractor Development, work-progress and the road
+ahead.&lt;/p&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+            &lt;h2&gt;&lt;span&gt;Community Bonding Period&lt;/span&gt;&lt;/h2&gt;
+ &lt;/div&gt;
+
+&lt;p&gt;The official list of selected proposals was released by Google
+ on the 6th of May and with it started the community bonding
+ period. It began with me &lt;em&gt;jumping for joy&lt;/em&gt; after getting the
+ news of my proposal getting selected.&lt;/p&gt;
+
+&lt;p&gt;It was basically a month full of learning and planning.
+ Two social groups have been created, one on Facebook
+ and the other on Telegram, which includes over 600 selected
+ students from around the globe. It is a great platform for
+ sharing your progress and getting help when you are stuck
+  somewhere.&lt;/p&gt;
+
+&lt;p&gt;Here are the tasks I checked off during the community period!&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Deciding the structure of my project&lt;/strong&gt;&lt;br /&gt;
+This is the first time I am going to be working on a project
+ which involves so much! Deciding the structure of the project
+early was a crucial task so that the development stays
+smooth ahead. I was sure to use C++ as the language
+and thus I started off with strengthening the concepts
+of the language. After checking out some popular C++
+projects and reading some blogs on the same I have
+decided to use something like this:
+&lt;br /&gt;&lt;br /&gt;
+ &lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/project_structure.png&quot; alt=&quot;Structure Project&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Creating a Trello board&lt;/strong&gt;&lt;br /&gt;
+As I had mentioned in my proposal I wanted to have a
+detailed checklist of the tasks to be done with their deadlines.
+This would help me and my mentor to keep track of my work.
+ I am maintaining the milestones and deliverables in a
+ Trello board, which can be found here : &lt;br /&gt;
+ &lt;a href=&quot;https://trello.com/b/JQGOK4Yo/co-occursubtitlesynchronization&quot; target=&quot;_blank&quot;&gt;
+ Milestones and checklist for co-oCCur: High-speed subtitle synchronization tool
+ &lt;/a&gt;&lt;br /&gt;&lt;br /&gt;
+ &lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/trello_cooCCur.png&quot; alt=&quot;Trello Board&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Setting-up my Blog&lt;/strong&gt;&lt;br /&gt;
+For everyone to follow my progress on the project I have set
+ up this blog. This is the best way for the whole community
+to know what’s cooking.
+It’s a simple and 
+&lt;a href=&quot;https://www.wowthemes.net/mediumish-free-jekyll-template/&quot; target=&quot;_blank&quot;&gt;
+ mediumish
+ &lt;/a&gt;
+themed Jekyll blog hosted on
+Github pages. &lt;br /&gt; &lt;br /&gt;
+Here it resides: &lt;a href=&quot;https://sypai.github.io&quot; target=&quot;_blank&quot;&gt;https://sypai.github.io &lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Setting-up Payoneer account&lt;/strong&gt;&lt;br /&gt;
+There have been more discussions on this in the Telegram
+ group than anything else. Fortunately, it took me around ten
+ minutes to set it up and receive the confirmation email from
+Payoneer.
+ &lt;br /&gt;&lt;br /&gt;
+ &lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/pay.png&quot; alt=&quot;Payoneer&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;Surprise &amp;#127873;  &amp;#128217; &lt;/h2&gt;&lt;/p&gt;
+&lt;p&gt;As mentioned in the CCExtractor’s website,&lt;/p&gt;
+
+&lt;blockquote class=&quot;primary left&quot;&gt;
+&lt;em&gt;This year we're going to try something new. All
+ accepted students will get a programming book
+  immediately after being accepted, with the hope that they
+  read them before the coding starts. We want to see
+  if this increases the quality of the work.&lt;/em&gt;
+&lt;br /&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Each of the accepted students was to choose a technical
+ book of their choice. I chose &lt;strong&gt;&lt;em&gt;Elements of Programming
+ Interviews in Python&lt;/em&gt;&lt;/strong&gt; by &lt;em&gt;Adnan Aziz&lt;/em&gt;, &lt;em&gt;Tsung-Hsien Lee&lt;/em&gt; and &lt;em&gt;Amit Prakash&lt;/em&gt;. Placement season being next
+ in the queue, this book is a very good addition to my
+ library.
+ &lt;br /&gt; Thank you &lt;a href=&quot;https://ccextractor.org&quot; target=&quot;_blank&quot;&gt;CCExtractor Development!&lt;/a&gt; 😍
+&lt;br /&gt;&lt;br /&gt;
+   &lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/book_CC.jpg&quot; alt=&quot;Book&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;Bad News &amp;#128531;&lt;/h2&gt;&lt;/p&gt;
+&lt;p&gt;My end semester exams have been postponed, this was
+ known, I had mentioned this in my proposal. But the final 
+ schedule wasn’t announced until 20th May. Guess what! 
+ Exams started from the very same day the coding period 
+ officially began. 
+ &lt;br /&gt;
+I had to re-schedule the weekly milestones and deadlines.
+ I have informed my mentor regarding this and he says,&lt;/p&gt;
+
+&lt;blockquote class=&quot;primary left&quot;&gt;
+&lt;em&gt;
+as long as you are on track by the time of the first evaluation 
+you're OK. But it would be a good idea to show me your
+ progress often.
+&lt;/em&gt;
+&lt;br /&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It would be a bit of a predicament to manage to work with 
+the exams. I hope by the end of first evaluation, I will able
+ to complete all the deliverables.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;h2&gt;Road Ahead! &amp;#128739; &lt;/h2&gt;&lt;/p&gt;
+&lt;p&gt;At the end of the first four weeks, first evaluation [24 May - 28 May] begins.
+ I will try to stick to the deadlines as I have mentioned in the 
+ &lt;a href=&quot;https://trello.com/b/JQGOK4Yo/co-occursubtitlesynchronization&quot; target=&quot;_blank&quot;&gt;
+ trello &lt;/a&gt; 
+ board. I know it is going to be a roller-coaster ride. I am sure I will learn a lot during the next 3 months!&lt;/p&gt;
+
+&lt;p&gt;I wish all the participants a fun and a productive summer. Happy Coding!&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 03 Jun 2019 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/GSoC-00-Bonding-period-ends-&-Coding-begins-!/</link>
+        <guid isPermaLink="true">http://localhost:4000/GSoC-00-Bonding-period-ends-&-Coding-begins-!/</guid>
         
         
         <category>GSoC</category>
@@ -95,8 +243,8 @@ The misalignment of the subtitle files is the underlying problem that this proje
 &lt;/blockquote&gt;
 </description>
         <pubDate>Sun, 19 May 2019 00:00:00 +0530</pubDate>
-        <link>http://localhost:4000/Google-Summer-of-Code-The-journey-begins/</link>
-        <guid isPermaLink="true">http://localhost:4000/Google-Summer-of-Code-The-journey-begins/</guid>
+        <link>http://localhost:4000/Google-Summer-of-Code-And-now-my-watch-begins/</link>
+        <guid isPermaLink="true">http://localhost:4000/Google-Summer-of-Code-And-now-my-watch-begins/</guid>
         
         
         <category>GSoC</category>

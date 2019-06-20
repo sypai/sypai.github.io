@@ -968,6 +968,17 @@ blockquote.right {
     border-width:  0 10px 0 0;
 }
 
+blockquote.left.primary {
+    border-color: #343434;
+    border-left: 10px solid #343434;
+    border-right: 0;
+}
+
+blockquote.left {
+    text-align: left;
+    border-width:  0 10px 0 0;
+}
+
 blockquote {
     border: 1px solid #b3b3b3;
     border-left: 10px solid #b3b3b3;

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<title>GSoC [00]: Bonding period ends & Coding begins!  | Suyash Bajpai</title>
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>GSoC [00]: Bonding period ends &amp; Coding begins! | syPai</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="GSoC [00]: Bonding period ends &amp; Coding begins!" />
+<meta name="author" content="syPai" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A month-long community bonding period ended on 27 May, commencing the official coding period. In this post, I would like to share my GSoC 2019 community bonding experience with CCExtractor Development, work-progress and the road ahead." />
+<meta property="og:description" content="A month-long community bonding period ended on 27 May, commencing the official coding period. In this post, I would like to share my GSoC 2019 community bonding experience with CCExtractor Development, work-progress and the road ahead." />
+<link rel="canonical" href="http://localhost:4000/GSoC-00-Bonding-period-ends-&-Coding-begins-!/" />
+<meta property="og:url" content="http://localhost:4000/GSoC-00-Bonding-period-ends-&-Coding-begins-!/" />
+<meta property="og:site_name" content="syPai" />
+<meta property="og:image" content="http://localhost:4000/assets/images/GSoC_timeline.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-03T00:00:00+05:30" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"GSoC [00]: Bonding period ends &amp; Coding begins!","dateModified":"2019-06-03T00:00:00+05:30","datePublished":"2019-06-03T00:00:00+05:30","url":"http://localhost:4000/GSoC-00-Bonding-period-ends-&-Coding-begins-!/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/GSoC-00-Bonding-period-ends-&-Coding-begins-!/"},"image":"http://localhost:4000/assets/images/GSoC_timeline.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"syPai"},"author":{"@type":"Person","name":"syPai"},"description":"A month-long community bonding period ended on 27 May, commencing the official coding period. In this post, I would like to share my GSoC 2019 community bonding experience with CCExtractor Development, work-progress and the road ahead.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+    <link href="/assets/css/loader.css" rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+</head>
+
+
+
+
+<body class="layout-post">
+
+<!--LOADERS-->
+<div class="load">
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div></div>
+
+<div class="load_main">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+<!---->
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.png" alt="Suyash Bajpai">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav text-center ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                
+                <li class="nav-item">
+                    
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search.."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+    
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=GSoC [00]: Bonding period ends & Coding begins! &url=http://localhost:4000/GSoC-00-Bonding-period-ends-&-Coding-begins-!/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/GSoC-00-Bonding-period-ends-&-Coding-begins-!/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/GSoC-00-Bonding-period-ends-&-Coding-begins-!/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        <!--  -->
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                <!-- 
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/?s=250&d=mm&r=x" alt="">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href=""></a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                 -->
+
+                <!-- Post Title -->
+                <h1 class="posttitle">GSoC [00]: Bonding period ends & Coding begins! </h1>
+                <!-- Post Date -->
+                <p>
+                
+                        <span class="post-date"><time class="post-date" datetime="2019-06-03">03 Jun 2019</time></span>           
+                        
+                            
+
+<span class="post-date" style="font-size: 1em;">
+    &#183;    
+</span>
+
+<span class="reading-time post-date title="Estimated read time">
+        
+        4 min read
+</span>
+                    </p>
+                
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/GSoC_timeline.png" alt="GSoC [00]: Bonding period ends & Coding begins! ">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>A month-long community bonding period ended on 27 May,
+commencing the official coding period. In this post, I would
+like to share my GSoC 2019 community bonding experience
+with CCExtractor Development, work-progress and the road
+ahead.</p>
+
+<div class="section-title margtop3rem">
+            <h2><span>Community Bonding Period</span></h2>
+ </div>
+
+<p>The official list of selected proposals was released by Google
+ on the 6th of May and with it started the community bonding
+ period. It began with me <em>jumping for joy</em> after getting the
+ news of my proposal getting selected.</p>
+
+<p>It was basically a month full of learning and planning.
+ Two social groups have been created, one on Facebook
+ and the other on Telegram, which includes over 600 selected
+ students from around the globe. It is a great platform for
+ sharing your progress and getting help when you are stuck
+  somewhere.</p>
+
+<p>Here are the tasks I checked off during the community period!</p>
+
+<ul>
+  <li>
+    <p><strong>Deciding the structure of my project</strong><br />
+This is the first time I am going to be working on a project
+ which involves so much! Deciding the structure of the project
+early was a crucial task so that the development stays
+smooth ahead. I was sure to use C++ as the language
+and thus I started off with strengthening the concepts
+of the language. After checking out some popular C++
+projects and reading some blogs on the same I have
+decided to use something like this:
+<br /><br />
+ <img class="featured-image img-fluid" src="/assets/images/project_structure.png" alt="Structure Project" /></p>
+  </li>
+  <li>
+    <p><strong>Creating a Trello board</strong><br />
+As I had mentioned in my proposal I wanted to have a
+detailed checklist of the tasks to be done with their deadlines.
+This would help me and my mentor to keep track of my work.
+ I am maintaining the milestones and deliverables in a
+ Trello board, which can be found here : <br />
+ <a href="https://trello.com/b/JQGOK4Yo/co-occursubtitlesynchronization" target="_blank">
+ Milestones and checklist for co-oCCur: High-speed subtitle synchronization tool
+ </a><br /><br />
+ <img class="featured-image img-fluid" src="/assets/images/trello_cooCCur.png" alt="Trello Board" /></p>
+  </li>
+  <li>
+    <p><strong>Setting-up my Blog</strong><br />
+For everyone to follow my progress on the project I have set
+ up this blog. This is the best way for the whole community
+to know what’s cooking.
+It’s a simple and 
+<a href="https://www.wowthemes.net/mediumish-free-jekyll-template/" target="_blank">
+ mediumish
+ </a>
+themed Jekyll blog hosted on
+Github pages. <br /> <br />
+Here it resides: <a href="https://sypai.github.io" target="_blank">https://sypai.github.io </a></p>
+  </li>
+  <li>
+    <p><strong>Setting-up Payoneer account</strong><br />
+There have been more discussions on this in the Telegram
+ group than anything else. Fortunately, it took me around ten
+ minutes to set it up and receive the confirmation email from
+Payoneer.
+ <br /><br />
+ <img class="featured-image img-fluid" src="/assets/images/pay.png" alt="Payoneer" /></p>
+  </li>
+</ul>
+
+<p><br /></p>
+<p><h2>Surprise &#127873;  &#128217; </h2></p>
+<p>As mentioned in the CCExtractor’s website,</p>
+
+<blockquote class="primary left">
+<em>This year we're going to try something new. All
+ accepted students will get a programming book
+  immediately after being accepted, with the hope that they
+  read them before the coding starts. We want to see
+  if this increases the quality of the work.</em>
+<br />
+</blockquote>
+<p>Each of the accepted students was to choose a technical
+ book of their choice. I chose <strong><em>Elements of Programming
+ Interviews in Python</em></strong> by <em>Adnan Aziz</em>, <em>Tsung-Hsien Lee</em> and <em>Amit Prakash</em>. Placement season being next
+ in the queue, this book is a very good addition to my
+ library.
+ <br /> Thank you <a href="https://ccextractor.org" target="_blank">CCExtractor Development!</a> 😍
+<br /><br />
+   <img class="featured-image img-fluid" src="/assets/images/book_CC.jpg" alt="Book" /></p>
+
+<p><br /></p>
+<p><h2>Bad News &#128531;</h2></p>
+<p>My end semester exams have been postponed, this was
+ known, I had mentioned this in my proposal. But the final 
+ schedule wasn’t announced until 20th May. Guess what! 
+ Exams started from the very same day the coding period 
+ officially began. 
+ <br />
+I had to re-schedule the weekly milestones and deadlines.
+ I have informed my mentor regarding this and he says,</p>
+
+<blockquote class="primary left">
+<em>
+as long as you are on track by the time of the first evaluation 
+you're OK. But it would be a good idea to show me your
+ progress often.
+</em>
+<br />
+</blockquote>
+
+<p>It would be a bit of a predicament to manage to work with 
+the exams. I hope by the end of first evaluation, I will able
+ to complete all the deliverables.</p>
+
+<p><br /></p>
+<p><h2>Road Ahead! &#128739; </h2></p>
+<p>At the end of the first four weeks, first evaluation [24 May - 28 May] begins.
+ I will try to stick to the deadlines as I have mentioned in the 
+ <a href="https://trello.com/b/JQGOK4Yo/co-occursubtitlesynchronization" target="_blank">
+ trello </a> 
+ board. I know it is going to be a roller-coaster ride. I am sure I will learn a lot during the next 3 months!</p>
+
+<p>I wish all the participants a fun and a productive summer. Happy Coding!</p>
+
+
+            </div>
+
+            <hr />
+            
+            <!-- Rating -->
+            
+
+            <!-- Post Date
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2019-06-03">03 Jun 2019</time></span>           
+                
+                </small>
+            </p> -->
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#GSoC">GSoC</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!--&lt;!&ndash; Prev/Next &ndash;&gt;-->
+            <!--<div class="row PageNavigation d-flex justify-content-between font-weight-bold">-->
+            <!---->
+            <!--<a class="prev d-block col-md-6" rel="canonical" href="//GSoC-00-Bonding-period-ends-&-Coding-begins-!/"> &#8612; Google Summer of Code: And now my watch begins!</a>-->
+            <!---->
+            <!---->
+            <!--<a class="next d-block col-md-6 text-lg-right" href="//GSoC-01-Week-1/">GSoC [01], Week 1: coding.begin()  &#8614; </a>-->
+            <!---->
+            <!--<div class="clearfix"></div>-->
+            <!--</div>-->
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+<hr />
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                
+        
+
+        <div id="disqus_thread"></div>
+        <script>
+          var disqus_config = function () {
+            this.page.url = 'http://localhost:4000/GSoC-00-Bonding-period-ends-&-Coding-begins-!/';
+            this.page.identifier = 'http://localhost:4000/GSoC-00-Bonding-period-ends-&-Coding-begins-!/';
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://sypai-github-io.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#GSoC">GSoC (3)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                    Suyash Bajpai © 2019
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">
+                <!--<a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a>-->
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/sypai" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+</div>
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/js/loader.js"> </script>
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//{"shortname"=>"sypai-github-io"}.disqus.com/count.js"></script>
+
+    <!--<script type="text/javascript" src="/assets/js/typewriter.js"> </script>-->
+
+</body>
+</html>

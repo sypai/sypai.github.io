@@ -125,23 +125,23 @@ date: 2019-05-17 19:28:57 +0530
                     {% assign sortedTags = page.tags | sort %}
                     {% for tag in sortedTags %}
                     <li>
-                        <a class="smoothscroll" href="{{site.baseurl}}/tags#{{ tag | replace: " ","-" }}">#{{ tag }}</a>
+                        <a class="smoothscroll" href="{{ site.baseurl }}/tags#{{ tag | replace: " ","-" }}">#{{ tag }}</a>
                     </li>
                     {% endfor %}
                 </ul>
             </div>
             <!-- End Tags -->
 
-            <!-- Prev/Next -->
-            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
-            {% if page.previous.url %}
-            <a class="prev d-block col-md-6" href="{{ site.baseurl }}/{{page.previous.url}}"> &#8612; {{page.previous.title}}</a>
-            {% endif %}
-            {% if page.next.url %}
-            <a class="next d-block col-md-6 text-lg-right" href="{{ site.baseurl }}/{{page.next.url}}">{{page.next.title}} &#8614; </a>
-            {% endif %}
-            <div class="clearfix"></div>
-            </div>
+            <!--&lt;!&ndash; Prev/Next &ndash;&gt;-->
+            <!--<div class="row PageNavigation d-flex justify-content-between font-weight-bold">-->
+            <!--{% if page.previous.url %}-->
+            <!--<a class="prev d-block col-md-6" rel="canonical" href="{{ site.baseurl }}/{{page.url}}"> &#8612; {{page.previous.title}}</a>-->
+            <!--{% endif %}-->
+            <!--{% if page.next.url %}-->
+            <!--<a class="next d-block col-md-6 text-lg-right" href="{{ site.baseurl }}/{{ page.next.url }}">{{page.next.title}} &#8614; </a>-->
+            <!--{% endif %}-->
+            <!--<div class="clearfix"></div>-->
+            <!--</div>-->
             <!-- End Categories -->
 
         </div>
