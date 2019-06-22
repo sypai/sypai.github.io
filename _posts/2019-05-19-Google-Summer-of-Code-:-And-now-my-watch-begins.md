@@ -23,7 +23,8 @@ My proposal
         </div>
 
 <img class="featured-image img-fluid" src="{{ site.baseurl }}/assets/images/what_is_gsoc.png" alt="What is GSoC">
-
+<br />
+<br />
 Simply put, it is an international annual program by Google aimed at promoting 
 <a href="https://opensource.com/resources/what-open-source" target="_blank">
 Open Source Software development </a> 
