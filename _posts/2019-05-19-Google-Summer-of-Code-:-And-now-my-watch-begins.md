@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Google Summer of Code: And now my watch begins!"
+title:  "GSoC [00]: And now my watch begins!"
 author: syPai
 categories: [ GSoC ]
 image: assets/images/gsoc_cc.png
@@ -21,9 +21,9 @@ My proposal
 <div class="section-title margtop3rem">
             <h2><span>About GSoC</span></h2>
         </div>
-
+<p>
 <img class="featured-image img-fluid" src="{{ site.baseurl }}/assets/images/what_is_gsoc.png" alt="What is GSoC">
-<br />
+</p>
 Simply put, it is an international annual program by Google aimed at promoting 
 <a href="https://opensource.com/resources/what-open-source" target="_blank">
 Open Source Software development </a> 

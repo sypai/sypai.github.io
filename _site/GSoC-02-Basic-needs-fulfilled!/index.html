@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="icon" href="/assets/images/logo.png">
+
+<title>GSoC [02]: Basic needs fulfilled!  | Suyash Bajpai</title>
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>GSoC [02]: Basic needs fulfilled! | syPai</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="GSoC [02]: Basic needs fulfilled!" />
+<meta name="author" content="syPai" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The first of the three phases of coding is about to end. And the evaluations for this phase start from 24th June. This post contains the synopsis of my work during the first four weeks." />
+<meta property="og:description" content="The first of the three phases of coding is about to end. And the evaluations for this phase start from 24th June. This post contains the synopsis of my work during the first four weeks." />
+<link rel="canonical" href="http://localhost:4000/GSoC-02-Basic-needs-fulfilled!/" />
+<meta property="og:url" content="http://localhost:4000/GSoC-02-Basic-needs-fulfilled!/" />
+<meta property="og:site_name" content="syPai" />
+<meta property="og:image" content="http://localhost:4000/assets/images/journey.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-22T00:00:00+05:30" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"GSoC [02]: Basic needs fulfilled!","dateModified":"2019-06-22T00:00:00+05:30","datePublished":"2019-06-22T00:00:00+05:30","url":"http://localhost:4000/GSoC-02-Basic-needs-fulfilled!/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/GSoC-02-Basic-needs-fulfilled!/"},"image":"http://localhost:4000/assets/images/journey.jpg","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"syPai"},"author":{"@type":"Person","name":"syPai"},"description":"The first of the three phases of coding is about to end. And the evaluations for this phase start from 24th June. This post contains the synopsis of my work during the first four weeks.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<link href="/assets/css/screen.css" rel="stylesheet">
+
+<link href="/assets/css/main.css" rel="stylesheet">
+
+    <link href="/assets/css/loader.css" rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+
+</head>
+
+
+
+
+<body class="layout-post">
+
+<!--LOADERS-->
+<div class="load">
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div></div>
+
+<div class="load_main">
+	<!-- defer loading of font and font awesome -->
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	</noscript>
+
+
+<!-- Begin Menu Navigation
+================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+<!---->
+    <div class="container pr-0">
+
+    <!-- Begin Logo -->
+    <a class="navbar-brand" href="/">
+    <img src="/assets/images/logo.png" alt="Suyash Bajpai">
+    </a>
+    <!-- End Logo -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMediumish">
+
+        <!-- Begin Menu -->
+
+            <ul class="navbar-nav text-center ml-auto">
+
+                
+                <li class="nav-item">
+                
+                <a class="nav-link" href="/index.html">Blog</a>
+                </li>
+
+                
+                <li class="nav-item">
+                    
+                <a class="nav-link" href="/about">About</a>
+                </li>
+
+
+                <script src="/assets/js/lunr.js"></script>
+
+
+<style>
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+</style>
+
+
+<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search.."/>
+</form>
+
+<div id="lunrsearchresults">
+    <ul></ul>
+</div>
+
+<script src="/assets/js/lunrsearchengine.js"></script>
+
+            </ul>
+
+        <!-- End Menu -->
+
+    </div>
+
+    </div>
+</nav>
+<!-- End Navigation
+================================================== -->
+
+<div class="site-content">
+
+<div class="container">
+
+<!-- Site Title
+================================================== -->
+    
+
+<!-- Content
+================================================== -->
+<div class="main-content">
+    <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div class="row">
+
+        <!-- Post Share -->
+        <div class="col-md-2 pl-0">
+            <div class="share sticky-top sticky-top-offset">
+    <p>
+        Share
+    </p>
+    <ul>
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=GSoC [02]: Basic needs fulfilled! &url=http://localhost:4000/GSoC-02-Basic-needs-fulfilled!/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://facebook.com/sharer.php?u=http://localhost:4000/GSoC-02-Basic-needs-fulfilled!/" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+            <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/GSoC-02-Basic-needs-fulfilled!/" onclick="window.open(this.href, 'width=550,height=435');return false;">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="sep">
+    </div>
+    <ul>
+        <li>
+        <a class="small smoothscroll" href="#disqus_thread"></a>
+        </li>
+    </ul>
+    
+</div>
+
+        </div>
+
+        <!-- Post -->
+        <!--  -->
+
+        <div class="col-md-9 flex-first flex-md-unordered">
+            <div class="mainheading">
+
+                <!-- Author Box -->
+                <!-- 
+                <div class="row post-top-meta">
+                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
+                        
+                        <img class="author-thumb" src="https://www.gravatar.com/avatar/?s=250&d=mm&r=x" alt="">
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
+                        <a target="_blank" class="link-dark" href=""></a><a target="_blank" href="" class="btn follow">Follow</a>
+                        <span class="author-description"></span>
+                    </div>
+                </div>
+                 -->
+
+                <!-- Post Title -->
+                <h1 class="posttitle">GSoC [02]: Basic needs fulfilled! </h1>
+                <!-- Post Date -->
+                <p>
+                
+                        <span class="post-date"><time class="post-date" datetime="2019-06-22">22 Jun 2019</time></span>           
+                        
+                            
+
+<span class="post-date" style="font-size: 1em;">
+    &#183;    
+</span>
+
+<span class="reading-time post-date" title="Estimated read time">
+        
+        6 min read
+</span>
+                    </p>
+                
+            </div>
+
+            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            
+            <!-- End Adsense -->
+
+            <!-- Post Featured Image -->
+            
+
+            
+            <img class="featured-image img-fluid" src="/assets/images/journey.jpg" alt="GSoC [02]: Basic needs fulfilled! ">
+            
+
+            
+            <!-- End Featured Image -->
+
+            <!-- Post Content -->
+            <div class="article-post">
+                <!-- Toc if any -->
+                
+                <!-- End Toc -->
+                <p>The first of the three phases of coding is about to end. And
+ the evaluations for this phase start from 24th June.
+This post contains the synopsis of my work during the
+ first four weeks.</p>
+
+<!-- Where ?-->
+<div class="section-title margtop3rem">
+             <h2><span>Where do we want to be? &#127768;</span></h2>
+</div>
+
+<p>A question we need an answer to, before starting anything. 
+ Let’s start with that. It won’t be fair if I talk a blue streak 
+ about <em>what I have</em> done without discussing <em>what I want to do</em>.
+ <br />
+ The project co-oCCur aims to address the 
+ issue: “misalignment of subtitles with the base audiovisual
+  content”. There are two use cases that the project currently
+   aims to tackle leveraging two different approaches using
+    two tools, namely <strong>Tool A</strong> and <strong>Tool B</strong>. 
+    My
+ <a href="https://docs.google.com/document/d/1QEB3jDNvFVPP4OpvU1m_A3kME288LZKJVIs1g1AXin4/edit?usp=sharing">
+  proposal
+ </a>
+ elucidates the approach of tackling both the cases and the 
+ architecture of both the tools in depth. In a nutshell, 
+ Tool A will use 
+ <a href="https://en.wikipedia.org/wiki/Acoustic_fingerprint">
+    audio-fingerprint 
+  </a>
+ annotations while Tool B will create two strings
+  (an audio string and a subtitle string), to detect a 
+  <strong><em>constant temporal offset</em></strong> responsible for the misalignment. 
+ Adjustment of the subtitles will be achieved by propagating 
+ a time delay in each of the caption entries in the subtitle 
+ document. The resulting subtitle document will have a 
+ different presentation time for each caption entry so that the
+ audio and the subtitles <strong>co-oCCur</strong>.</p>
+
+<p><strong>Tool A</strong> <br />
+ Use case: Synchronization of subtitles between two versions 
+ (for example, with and without commercials) 
+ of the same audiovisual content. It will take as input the 
+ original audiovisual content, the edited audiovisual content 
+ and the subtitles document of the original audiovisual content.</p>
+
+<p><strong>Tool B</strong> <br />
+ Use case: Synchronization of subtitles between two versions
+ of the same audiovisual content in the absence of the 
+ original content. It will take as input the modified audiovisual 
+ content and the subtitle document for the original 
+ audiovisual content.</p>
+
+<p>The whole project has been divided into modules and
+  sub-modules. The function of each of which I have described
+   in my proposal in great detail. During the first coding 
+   phase, I had decided to work on all the basic utility modules.</p>
+
+<p><!-- How along ?--></p>
+<div class="section-title margtop3rem">
+              <h2><span>How's the Subtitle Synchronization coming along? ️️&#9203;</span></h2>
+ </div>
+
+<p><img class="featured-image img-fluid" src="/assets/images/phase1_tasks.png" alt="Trello Board" />
+These were the proposed deliverables for the first evaluations. 
+ I have also created a <em>Trello</em> board  to make it easier for my mentor and myself, to keep a track of my progress.</p>
+
+<p><strong><em>Project link</em></strong>:  <a href="https://github.com/sypai/co-oCCur" target="_blank">
+   github.com/sypai/co-oCCur 
+   </a><br />
+   <strong><em>Trello</em></strong>: <a href="https://trello.com/b/JQGOK4Yo/co-occursubtitlesynchronization" target="_blank">
+   trello.com/co-occursubtitlesynchronization
+  </a><br /></p>
+
+<p>As I had mentioned in the 
+  <a href="GSoC-00-Bonding-period-ends-&amp;-Coding-begins-!/" target="_blank">
+  last post</a>, my final examinations 
+  started from the very same day the coding period began, which made 
+  everything a bit cluttery in the first two weeks. I could not 
+  devote the time I planned and needed to meet the deadlines.
+ As a result, tasks were getting postponed. But somehow after
+a few sleepless nights, lots of coffee and an endless loop of
+good music later, things have got on track, at least I feel so.</p>
+
+<p>Here are the tasks I checked off during the <em>first coding phase</em>:</p>
+
+<p><strong>Sample Repository</strong> ✔️ <br />
+The first task in hand was to collect samples, a lot of samples. 
+I had mentioned this as a requirement in my proposal. 
+I informed my mentor @<a href="https://github.com/cfsmp3">cfsmp3
+</a>
+ and he gave me access to 
+a high-speed development server (gsocdev3) which has a 
+huge sample collection. <em>FFmpeg</em> and <strong><em>CCExtractor</em></strong> are the 
+tools I used to extract audio and subtitles &amp; collected them 
+in a <code class="highlighter-rouge">SampleRepository</code>. For our project, the audio needs to 
+have certain specifications. It needs to be uncompressed, 
+raw PCM (16 bit-signed int), mono sampled at 16000 Hertz.
+<br />
+<br />
+<img class="featured-image img-fluid" src="/assets/images/samplerepo.png" alt="Sample Repo" /></p>
+
+<p><strong>Basic Architecture</strong> ✔️<br />
+This is how the <a href="https://github.com/sypai/co-oCCur">co-oCCur</a> repo currently look like:
+<br /><br />
+<img class="featured-image img-fluid" src="/assets/images/proj_structure.png" alt="Project tree" /></p>
+
+<p><strong>Base64 <code class="highlighter-rouge">encrypt</code> and <code class="highlighter-rouge">decrypt</code></strong> ✔️<br />
+[<code class="highlighter-rouge">Tool A</code>] The fingerprints extracted from the audio will be 32-bit integer
+ vectors and this is the form we will use while comparing them later.
+But in the subtitle document they will be stored as base64 strings.
+Task of converting these integer vectors to base64 strings and vice versa
+has been completed.
+<br />
+<img class="featured-image img-fluid" src="/assets/images/base64.png" alt="base64" /></p>
+
+<p><strong>SiftSRT</strong> ✔️<br />
+<a href="https://github.com/sypai/SiftSRT" target="_blank">
+SiftSRT: A complete subtitle parser and editor
+</a> (Check it out!).
+Whatever our Tool A and Tool B require, related to subtitle files,
+ SiftSRT has got it covered!. <br /></p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="rouge-code"><pre>    <span class="n">SubtitleParserFactory</span> <span class="o">*</span><span class="n">spf</span><span class="p">;</span>
+    <span class="n">spf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubtitleParserFactory</span><span class="p">(</span><span class="s">"inputSubtitle.srt"</span><span class="p">);</span>
+
+    <span class="n">SubtitleParser</span> <span class="o">*</span><span class="n">parser</span><span class="p">;</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">spf</span><span class="o">-&gt;</span><span class="n">getParser</span><span class="p">();</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">SubtitleItem</span> <span class="o">*&gt;</span> <span class="n">sub</span><span class="p">;</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="n">parser</span><span class="o">-&gt;</span><span class="n">getSubtitles</span><span class="p">();</span>
+    
+    <span class="n">co_oCCurEditor</span> <span class="o">*</span><span class="n">edit</span><span class="p">;</span>
+    <span class="n">edit</span> <span class="o">=</span> <span class="k">new</span> <span class="n">co_oCCurEditor</span><span class="p">(</span><span class="n">sub</span><span class="p">);</span>
+  
+    <span class="n">co_oCCurParser</span> <span class="o">*</span><span class="n">parse</span><span class="p">;</span>
+    <span class="n">parse</span> <span class="o">=</span> <span class="k">new</span> <span class="n">co_oCCurParser</span><span class="p">(</span><span class="n">sub</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li><strong>AFInserter</strong> <br /> 
+ [<code class="highlighter-rouge">Tool A</code>] Our audio fingerprinting library <strong>Dactylogram</strong> 
+ (Phase 2) will extract audio fingerprints annotations from the original audio
+ and then they will be inserted into the original subtitle 
+ document as fingerprint anchors and 
+ create an enriched subtitle document.</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>  <span class="n">edit</span><span class="o">-&gt;</span><span class="n">EnrichSRT</span><span class="p">(</span><span class="s">"temp.srt"</span><span class="p">,</span> <span class="n">fingerprints</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li><strong>AFSeeker</strong> <br />
+[<code class="highlighter-rouge">Tool A</code>] For comparing our fingerprints extracted from modified audio
+with the fingerprint anchors we will need the anchors. Our Subtitle parser
+will give that.</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="k">auto</span> <span class="n">FPs</span> <span class="o">=</span> <span class="n">parse</span><span class="o">-&gt;</span><span class="n">getFingerprints</span><span class="p">();</span>
+<span class="k">auto</span> <span class="n">FPTime</span> <span class="o">=</span> <span class="n">parse</span><span class="o">-&gt;</span><span class="n">getFPTimestamps</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li><strong>Subtitle Segmentation</strong> <br />
+[<code class="highlighter-rouge">Tool B</code>] As mentioned we need a subtitleString containing information about subtitles
+<br /><code class="highlighter-rouge">1 = Subtitle present in the window</code>
+<br /><code class="highlighter-rouge">0 = No subtitle in the window</code></li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre> <span class="kt">int</span> <span class="n">timeWindow</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+ <span class="k">auto</span> <span class="n">substring</span> <span class="o">=</span> <span class="n">parse</span><span class="o">-&gt;</span><span class="n">SpeechActivityDetection</span><span class="p">(</span><span class="n">timeWindow</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<ul>
+  <li><strong>Subtitle Adjustment</strong> <br />
+ [<code class="highlighter-rouge">Tool A</code>][<code class="highlighter-rouge">Tool B</code>] The last step in both tools is adjusting the subtitle file 
+ using the constant temporal offset detected by respective algorithm.
+ As we get the <code class="highlighter-rouge">delay</code> we propagate it to each caption entry.</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">edit</span><span class="o">-&gt;</span><span class="n">AdjustSRT</span><span class="p">(</span><span class="s">"example.srt"</span><span class="p">,</span> <span class="n">delay</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><strong>VAD Implementation</strong> ✔️<br />
+[<code class="highlighter-rouge">Tool B</code>] Out of the required two strings for alignment <code class="highlighter-rouge">audioString</code> contains information
+of voice activity in a time window for the modified audio. 
+This requires  <strong><em>Voice Activity Detection</em></strong>. Google’s open-source 
+<a href="https://webrtc.org/" target="_blank">WebRTC</a> has a VAD
+module which uses Gaussian Mixture Model (GMM). I have used that for creating our
+<code class="highlighter-rouge">audioString</code>.
+<br /><code class="highlighter-rouge">1 = Subtitle present in the window</code>
+<br /><code class="highlighter-rouge">0 = No subtitle in the window</code></p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre>    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int16_t</span><span class="o">&gt;</span> <span class="n">samples</span> <span class="o">=</span> <span class="n">file</span><span class="o">-&gt;</span><span class="n">getSamples</span><span class="p">();</span>
+    <span class="n">implementVAD</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<!-- Fall into place -->
+<div class="section-title margtop3rem">
+              <h2><span>How does everything fall into place? 🧩</span></h2>
+ </div>
+<p>All the <strong><em>basic needs</em></strong> of the project have been fulfilled.<br />
+ The figures below describe the workflow of the Tools. 
+ ✔️ represents which parts of the workflow have been completed.</p>
+
+<div class="section-title margtop3rem">
+                <h3><span> Tool A </span></h3>
+   </div>
+<p><img class="featured-image img-fluid" src="/assets/images/Tool A (2).png" alt="Project tree" /></p>
+
+<div class="section-title margtop3rem">
+                 <h3><span> Tool B </span></h3>
+    </div>
+<p><img class="featured-image img-fluid" src="/assets/images/Tool B (2).png" alt="Project tree" /></p>
+
+<div class="section-title margtop3rem">
+ <h2><span>Road ahead &#128739;</span></h2>
+ </div>
+<p>Now I will begin working on <strong><em>Dactylogram</em></strong>, the most interesting, challenging and
+presumably time-taking part of the whole project. The goal is to develop
+an audio fingerprinting library required for <strong>Tool A</strong>. In the workflow above, the
+blocks named <strong><em>AFExtractor</em></strong> &amp; <strong><em>Seeking</em></strong> would be the <code class="highlighter-rouge">TO-DO</code> for the 
+second phase.
+<br /><br />
+All the best to all the participants for the first evaluations. 
+I hope all of us pass with flying colors. 🤞 👍
+<br /> <br />
+See you on the other side!</p>
+
+
+            </div>
+
+            <hr />
+            
+            <!-- Rating -->
+            
+
+            <!-- Post Date
+            <p>
+            <small>
+                <span class="post-date"><time class="post-date" datetime="2019-06-22">22 Jun 2019</time></span>           
+                
+                </small>
+            </p> -->
+
+            <!-- Post Categories -->
+            <div class="after-post-cats">
+                <ul class="tags mb-4">
+                    
+                    
+                    <li>
+                        <a class="smoothscroll" href="/categories#GSoC">GSoC</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- End Categories -->
+
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    
+                    
+                </ul>
+            </div>
+            <!-- End Tags -->
+
+            <!--&lt;!&ndash; Prev/Next &ndash;&gt;-->
+            <!--<div class="row PageNavigation d-flex justify-content-between font-weight-bold">-->
+            <!---->
+            <!--<a class="prev d-block col-md-6" rel="canonical" href="//GSoC-02-Basic-needs-fulfilled!/"> &#8612; GSoC [01]: Bonding period ends & Coding begins! </a>-->
+            <!---->
+            <!---->
+            <!--<div class="clearfix"></div>-->
+            <!--</div>-->
+            <!-- End Categories -->
+
+        </div>
+        <!-- End Post -->
+
+    </div>
+</div>
+<!-- End Article
+================================================== -->
+<hr />
+<!-- Begin Comments
+================================================== -->
+
+    <div class="container">
+        <div id="comments" class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                
+        
+
+        <div id="disqus_thread"></div>
+        <script>
+          var disqus_config = function () {
+            this.page.url = 'http://localhost:4000/GSoC-02-Basic-needs-fulfilled!/';
+            this.page.identifier = 'http://localhost:4000/GSoC-02-Basic-needs-fulfilled!/';
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://sypai-github-io.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      
+
+            </div>
+        </div>
+    </div>
+
+<!--End Comments
+================================================== -->
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+
+</div>
+
+
+
+</div>
+
+<!-- Categories Jumbotron
+================================================== -->
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+            <div class="d-md-flex align-items-center justify-content-center h-100">
+                <h2 class="d-md-block align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+            </div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+            
+            
+                
+                    <a class="mt-1 mb-1" href="/categories#GSoC">GSoC (3)</a>
+                
+            
+            
+		</div>
+	</div>
+</div>
+
+<!-- Begin Footer
+================================================== -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                    Suyash Bajpai © 2019
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">
+                <!--<a target="_blank" href="https://www.wowthemes.net/mediumish-free-jekyll-template/">Mediumish Jekyll Theme</a>-->
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/sypai" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer
+================================================== -->
+
+</div> <!-- /.site-content -->
+</div>
+<!-- Scripts
+================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/js/loader.js"> </script>
+<script src="/assets/js/mediumish.js"></script>
+
+
+
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script> 
+
+
+<script id="dsq-count-scr" src="//{"shortname"=>"sypai-github-io"}.disqus.com/count.js"></script>
+
+    <!--<script type="text/javascript" src="/assets/js/typewriter.js"> </script>-->
+
+</body>
+</html>

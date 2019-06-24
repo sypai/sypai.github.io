@@ -5,24 +5,264 @@
     <description>Disciplined &amp; Relentless</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 20 Jun 2019 23:55:09 +0530</pubDate>
-    <lastBuildDate>Thu, 20 Jun 2019 23:55:09 +0530</lastBuildDate>
+    <pubDate>Mon, 24 Jun 2019 16:45:52 +0530</pubDate>
+    <lastBuildDate>Mon, 24 Jun 2019 16:45:52 +0530</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
-        <title>GSoC [01], Week 1: coding.begin() </title>
-        <description>&lt;p&gt;The first of the thirteen weeks has ended and I have started working
- on my project &lt;strong&gt;co-oCCur: High-speed subtitle synchronization&lt;/strong&gt;.&lt;/p&gt;
+        <title>GSoC [02]: Basic needs fulfilled! </title>
+        <description>&lt;p&gt;The first of the three phases of coding is about to end. And
+ the evaluations for this phase start from 24th June.
+This post contains the synopsis of my work during the
+ first four weeks.&lt;/p&gt;
 
-&lt;p&gt;Github  Repo: 
- &lt;a href=&quot;https://github.com/sypai/co-oCCur&quot; target=&quot;_blank&quot;&gt;
- sypai/co-oCCur
- &lt;/a&gt;&lt;/p&gt;
+&lt;!-- Where ?--&gt;
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+             &lt;h2&gt;&lt;span&gt;Where do we want to be? &amp;#127768;&lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;p&gt;A question we need an answer to, before starting anything. 
+ Let’s start with that. It won’t be fair if I talk a blue streak 
+ about &lt;em&gt;what I have&lt;/em&gt; done without discussing &lt;em&gt;what I want to do&lt;/em&gt;.
+ &lt;br /&gt;
+ The project co-oCCur aims to address the 
+ issue: “misalignment of subtitles with the base audiovisual
+  content”. There are two use cases that the project currently
+   aims to tackle leveraging two different approaches using
+    two tools, namely &lt;strong&gt;Tool A&lt;/strong&gt; and &lt;strong&gt;Tool B&lt;/strong&gt;. 
+    My
+ &lt;a href=&quot;https://docs.google.com/document/d/1QEB3jDNvFVPP4OpvU1m_A3kME288LZKJVIs1g1AXin4/edit?usp=sharing&quot;&gt;
+  proposal
+ &lt;/a&gt;
+ elucidates the approach of tackling both the cases and the 
+ architecture of both the tools in depth. In a nutshell, 
+ Tool A will use 
+ &lt;a href=&quot;https://en.wikipedia.org/wiki/Acoustic_fingerprint&quot;&gt;
+    audio-fingerprint 
+  &lt;/a&gt;
+ annotations while Tool B will create two strings
+  (an audio string and a subtitle string), to detect a 
+  &lt;strong&gt;&lt;em&gt;constant temporal offset&lt;/em&gt;&lt;/strong&gt; responsible for the misalignment. 
+ Adjustment of the subtitles will be achieved by propagating 
+ a time delay in each of the caption entries in the subtitle 
+ document. The resulting subtitle document will have a 
+ different presentation time for each caption entry so that the
+ audio and the subtitles &lt;strong&gt;co-oCCur&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tool A&lt;/strong&gt; &lt;br /&gt;
+ Use case: Synchronization of subtitles between two versions 
+ (for example, with and without commercials) 
+ of the same audiovisual content. It will take as input the 
+ original audiovisual content, the edited audiovisual content 
+ and the subtitles document of the original audiovisual content.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tool B&lt;/strong&gt; &lt;br /&gt;
+ Use case: Synchronization of subtitles between two versions
+ of the same audiovisual content in the absence of the 
+ original content. It will take as input the modified audiovisual 
+ content and the subtitle document for the original 
+ audiovisual content.&lt;/p&gt;
+
+&lt;p&gt;The whole project has been divided into modules and
+  sub-modules. The function of each of which I have described
+   in my proposal in great detail. During the first coding 
+   phase, I had decided to work on all the basic utility modules.&lt;/p&gt;
+
+&lt;p&gt;&lt;!-- How along ?--&gt;&lt;/p&gt;
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+              &lt;h2&gt;&lt;span&gt;How's the Subtitle Synchronization coming along? ️️&amp;#9203;&lt;/span&gt;&lt;/h2&gt;
+ &lt;/div&gt;
+
+&lt;p&gt;&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/phase1_tasks.png&quot; alt=&quot;Trello Board&quot; /&gt;
+These were the proposed deliverables for the first evaluations. 
+ I have also created a &lt;em&gt;Trello&lt;/em&gt; board  to make it easier for my mentor and myself, to keep a track of my progress.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Project link&lt;/em&gt;&lt;/strong&gt;:  &lt;a href=&quot;https://github.com/sypai/co-oCCur&quot; target=&quot;_blank&quot;&gt;
+   github.com/sypai/co-oCCur 
+   &lt;/a&gt;&lt;br /&gt;
+   &lt;strong&gt;&lt;em&gt;Trello&lt;/em&gt;&lt;/strong&gt;: &lt;a href=&quot;https://trello.com/b/JQGOK4Yo/co-occursubtitlesynchronization&quot; target=&quot;_blank&quot;&gt;
+   trello.com/co-occursubtitlesynchronization
+  &lt;/a&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;As I had mentioned in the 
+  &lt;a href=&quot;GSoC-00-Bonding-period-ends-&amp;amp;-Coding-begins-!/&quot; target=&quot;_blank&quot;&gt;
+  last post&lt;/a&gt;, my final examinations 
+  started from the very same day the coding period began, which made 
+  everything a bit cluttery in the first two weeks. I could not 
+  devote the time I planned and needed to meet the deadlines.
+ As a result, tasks were getting postponed. But somehow after
+a few sleepless nights, lots of coffee and an endless loop of
+good music later, things have got on track, at least I feel so.&lt;/p&gt;
+
+&lt;p&gt;Here are the tasks I checked off during the &lt;em&gt;first coding phase&lt;/em&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sample Repository&lt;/strong&gt; ✔️ &lt;br /&gt;
+The first task in hand was to collect samples, a lot of samples. 
+I had mentioned this as a requirement in my proposal. 
+I informed my mentor @&lt;a href=&quot;https://github.com/cfsmp3&quot;&gt;cfsmp3
+&lt;/a&gt;
+ and he gave me access to 
+a high-speed development server (gsocdev3) which has a 
+huge sample collection. &lt;em&gt;FFmpeg&lt;/em&gt; and &lt;strong&gt;&lt;em&gt;CCExtractor&lt;/em&gt;&lt;/strong&gt; are the 
+tools I used to extract audio and subtitles &amp;amp; collected them 
+in a &lt;code class=&quot;highlighter-rouge&quot;&gt;SampleRepository&lt;/code&gt;. For our project, the audio needs to 
+have certain specifications. It needs to be uncompressed, 
+raw PCM (16 bit-signed int), mono sampled at 16000 Hertz.
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/samplerepo.png&quot; alt=&quot;Sample Repo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Basic Architecture&lt;/strong&gt; ✔️&lt;br /&gt;
+This is how the &lt;a href=&quot;https://github.com/sypai/co-oCCur&quot;&gt;co-oCCur&lt;/a&gt; repo currently look like:
+&lt;br /&gt;&lt;br /&gt;
+&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/proj_structure.png&quot; alt=&quot;Project tree&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Base64 &lt;code class=&quot;highlighter-rouge&quot;&gt;encrypt&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;decrypt&lt;/code&gt;&lt;/strong&gt; ✔️&lt;br /&gt;
+[&lt;code class=&quot;highlighter-rouge&quot;&gt;Tool A&lt;/code&gt;] The fingerprints extracted from the audio will be 32-bit integer
+ vectors and this is the form we will use while comparing them later.
+But in the subtitle document they will be stored as base64 strings.
+Task of converting these integer vectors to base64 strings and vice versa
+has been completed.
+&lt;br /&gt;
+&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/base64.png&quot; alt=&quot;base64&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SiftSRT&lt;/strong&gt; ✔️&lt;br /&gt;
+&lt;a href=&quot;https://github.com/sypai/SiftSRT&quot; target=&quot;_blank&quot;&gt;
+SiftSRT: A complete subtitle parser and editor
+&lt;/a&gt; (Check it out!).
+Whatever our Tool A and Tool B require, related to subtitle files,
+ SiftSRT has got it covered!. &lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;    &lt;span class=&quot;n&quot;&gt;SubtitleParserFactory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;spf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SubtitleParserFactory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;inputSubtitle.srt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;SubtitleParser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SubtitleItem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getSubtitles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;co_oCCurEditor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;edit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;co_oCCurEditor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+    &lt;span class=&quot;n&quot;&gt;co_oCCurParser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;co_oCCurParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;AFInserter&lt;/strong&gt; &lt;br /&gt; 
+ [&lt;code class=&quot;highlighter-rouge&quot;&gt;Tool A&lt;/code&gt;] Our audio fingerprinting library &lt;strong&gt;Dactylogram&lt;/strong&gt; 
+ (Phase 2) will extract audio fingerprints annotations from the original audio
+ and then they will be inserted into the original subtitle 
+ document as fingerprint anchors and 
+ create an enriched subtitle document.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;  &lt;span class=&quot;n&quot;&gt;edit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EnrichSRT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;temp.srt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fingerprints&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timestamps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;AFSeeker&lt;/strong&gt; &lt;br /&gt;
+[&lt;code class=&quot;highlighter-rouge&quot;&gt;Tool A&lt;/code&gt;] For comparing our fingerprints extracted from modified audio
+with the fingerprint anchors we will need the anchors. Our Subtitle parser
+will give that.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FPs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getFingerprints&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FPTime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getFPTimestamps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Subtitle Segmentation&lt;/strong&gt; &lt;br /&gt;
+[&lt;code class=&quot;highlighter-rouge&quot;&gt;Tool B&lt;/code&gt;] As mentioned we need a subtitleString containing information about subtitles
+&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = Subtitle present in the window&lt;/code&gt;
+&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0 = No subtitle in the window&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeWindow&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;substring&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SpeechActivityDetection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timeWindow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Subtitle Adjustment&lt;/strong&gt; &lt;br /&gt;
+ [&lt;code class=&quot;highlighter-rouge&quot;&gt;Tool A&lt;/code&gt;][&lt;code class=&quot;highlighter-rouge&quot;&gt;Tool B&lt;/code&gt;] The last step in both tools is adjusting the subtitle file 
+ using the constant temporal offset detected by respective algorithm.
+ As we get the &lt;code class=&quot;highlighter-rouge&quot;&gt;delay&lt;/code&gt; we propagate it to each caption entry.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;edit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AdjustSRT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;example.srt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;VAD Implementation&lt;/strong&gt; ✔️&lt;br /&gt;
+[&lt;code class=&quot;highlighter-rouge&quot;&gt;Tool B&lt;/code&gt;] Out of the required two strings for alignment &lt;code class=&quot;highlighter-rouge&quot;&gt;audioString&lt;/code&gt; contains information
+of voice activity in a time window for the modified audio. 
+This requires  &lt;strong&gt;&lt;em&gt;Voice Activity Detection&lt;/em&gt;&lt;/strong&gt;. Google’s open-source 
+&lt;a href=&quot;https://webrtc.org/&quot; target=&quot;_blank&quot;&gt;WebRTC&lt;/a&gt; has a VAD
+module which uses Gaussian Mixture Model (GMM). I have used that for creating our
+&lt;code class=&quot;highlighter-rouge&quot;&gt;audioString&lt;/code&gt;.
+&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1 = Subtitle present in the window&lt;/code&gt;
+&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0 = No subtitle in the window&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int16_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;samples&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getSamples&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;implementVAD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;samples&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;!-- Fall into place --&gt;
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+              &lt;h2&gt;&lt;span&gt;How does everything fall into place? 🧩&lt;/span&gt;&lt;/h2&gt;
+ &lt;/div&gt;
+&lt;p&gt;All the &lt;strong&gt;&lt;em&gt;basic needs&lt;/em&gt;&lt;/strong&gt; of the project have been fulfilled.&lt;br /&gt;
+ The figures below describe the workflow of the Tools. 
+ ✔️ represents which parts of the workflow have been completed.&lt;/p&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+                &lt;h3&gt;&lt;span&gt; Tool A &lt;/span&gt;&lt;/h3&gt;
+   &lt;/div&gt;
+&lt;p&gt;&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/Tool A (2).png&quot; alt=&quot;Project tree&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+                 &lt;h3&gt;&lt;span&gt; Tool B &lt;/span&gt;&lt;/h3&gt;
+    &lt;/div&gt;
+&lt;p&gt;&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/Tool B (2).png&quot; alt=&quot;Project tree&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+ &lt;h2&gt;&lt;span&gt;Road ahead &amp;#128739;&lt;/span&gt;&lt;/h2&gt;
+ &lt;/div&gt;
+&lt;p&gt;Now I will begin working on &lt;strong&gt;&lt;em&gt;Dactylogram&lt;/em&gt;&lt;/strong&gt;, the most interesting, challenging and
+presumably time-taking part of the whole project. The goal is to develop
+an audio fingerprinting library required for &lt;strong&gt;Tool A&lt;/strong&gt;. In the workflow above, the
+blocks named &lt;strong&gt;&lt;em&gt;AFExtractor&lt;/em&gt;&lt;/strong&gt; &amp;amp; &lt;strong&gt;&lt;em&gt;Seeking&lt;/em&gt;&lt;/strong&gt; would be the &lt;code class=&quot;highlighter-rouge&quot;&gt;TO-DO&lt;/code&gt; for the 
+second phase.
+&lt;br /&gt;&lt;br /&gt;
+All the best to all the participants for the first evaluations. 
+I hope all of us pass with flying colors. 🤞 👍
+&lt;br /&gt; &lt;br /&gt;
+See you on the other side!&lt;/p&gt;
 
 </description>
-        <pubDate>Tue, 04 Jun 2019 00:00:00 +0530</pubDate>
-        <link>http://localhost:4000/GSoC-01-Week-1/</link>
-        <guid isPermaLink="true">http://localhost:4000/GSoC-01-Week-1/</guid>
+        <pubDate>Sat, 22 Jun 2019 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/GSoC-02-Basic-needs-fulfilled!/</link>
+        <guid isPermaLink="true">http://localhost:4000/GSoC-02-Basic-needs-fulfilled!/</guid>
         
         
         <category>GSoC</category>
@@ -30,7 +270,7 @@
       </item>
     
       <item>
-        <title>GSoC [00]: Bonding period ends &amp; Coding begins! </title>
+        <title>GSoC [01]: Bonding period ends &amp; Coding begins! </title>
         <description>&lt;p&gt;A month-long community bonding period ended on 27 May,
 commencing the official coding period. In this post, I would
 like to share my GSoC 2019 community bonding experience
@@ -171,7 +411,7 @@ the exams. I hope by the end of first evaluation, I will able
       </item>
     
       <item>
-        <title>Google Summer of Code: And now my watch begins!</title>
+        <title>GSoC [00]: And now my watch begins!</title>
         <description>&lt;p&gt;My proposal
  &lt;a href=&quot;https://summerofcode.withgoogle.com/projects/#5538361094176768&quot; target=&quot;_blank&quot;&gt;co-oCCur: High-speed subtitle synchronization&lt;/a&gt;
  has been accepted by 
@@ -185,7 +425,9 @@ the exams. I hope by the end of first evaluation, I will able
 &lt;div class=&quot;section-title margtop3rem&quot;&gt;
             &lt;h2&gt;&lt;span&gt;About GSoC&lt;/span&gt;&lt;/h2&gt;
         &lt;/div&gt;
-
+&lt;p&gt;
+&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/what_is_gsoc.png&quot; alt=&quot;What is GSoC&quot; /&gt;
+&lt;/p&gt;
 &lt;p&gt;Simply put, it is an international annual program by Google aimed at promoting 
 &lt;a href=&quot;https://opensource.com/resources/what-open-source&quot; target=&quot;_blank&quot;&gt;
 Open Source Software development &lt;/a&gt; 
