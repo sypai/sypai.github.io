@@ -5,17 +5,179 @@
     <description>Disciplined &amp; Relentless</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 25 Aug 2019 23:29:39 +0530</pubDate>
-    <lastBuildDate>Sun, 25 Aug 2019 23:29:39 +0530</lastBuildDate>
+    <pubDate>Mon, 26 Aug 2019 03:13:24 +0530</pubDate>
+    <lastBuildDate>Mon, 26 Aug 2019 03:13:24 +0530</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
         <title>GSoC : Final Work Submission! </title>
-        <description>
+        <description>&lt;p&gt;My first Google Summer of Code has now come to an end. It has been a
+surreal experience for me.&lt;/p&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+            &lt;h2&gt;&lt;span&gt;Important links &amp;#9939;&lt;/span&gt;&lt;/h2&gt;
+ &lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Project repository&lt;/strong&gt;  &lt;br /&gt;
+ &lt;a href=&quot;https://github.com/sypai/co-oCCur&quot; target=&quot;_blank&quot;&gt;
+  co-oCCur @ Github
+&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Milestone &amp;amp; deliverable Board&lt;/strong&gt;&lt;br /&gt;
+  &lt;a href=&quot;https://trello.com/b/JQGOK4Yo/co-occursubtitlesynchronization&quot; target=&quot;_blank&quot;&gt;
+  co-oCCur @ Trello
+  &lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Project proposal&lt;/strong&gt;&lt;br /&gt;
+  &lt;a href=&quot;https://github.com/sypai/gsoc_19_ccx_proposal/&quot; target=&quot;_blank&quot;&gt;
+    co_oCCur/gsoc_19_ccx_proposal
+&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Mentor&lt;/strong&gt;&lt;br /&gt;
+ &lt;a href=&quot;https://github.com/cfsmp3&quot; target=&quot;_blank&quot;&gt;
+Carlos Fernandez Sanz @ Github 
+&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Organization&lt;/strong&gt;&lt;br /&gt;
+&lt;a href=&quot;https://ccextractor.org/&quot; target=&quot;_blank&quot;&gt;
+CCExtractor Development
+&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+            &lt;h2&gt;&lt;span&gt;co-oCCur: High-speed subtitle synchronization &lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;p&gt;For an ideal subtitle file, the subtitles are perfectly aligned with
+ the base audiovisual content. In other words, the audio and the
+ corresponding subtitles co-oCCur. 
+The misalignment of the subtitle files is the underlying problem
+ that this project aims to solve so that the viewer does not have 
+any burden before the fun starts (this is what matters).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tool A&lt;/strong&gt; &lt;br /&gt;
+Use case: Synchronization of subtitles between two versions
+ (with and without commercials) of the same 
+ audiovisual content. It takes as input the original audiovisual 
+ content, the edited audiovisual content and the subtitles 
+ document of the original audiovisual content.&lt;br /&gt;
+&lt;strong&gt;Tool B&lt;/strong&gt; &lt;br /&gt;
+Use case: Synchronization of subtitles between two versions
+of the same audiovisual content in the absence of the original
+content. It takes as input the modified audiovisual content
+and the subtitle document for the original audiovisual content.&lt;/p&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+            &lt;h2&gt;&lt;span&gt;What has been done? &lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The whole project had been divided into modules and sub-modules.
+Can be seen in the
+&lt;a href=&quot;https://trello.com/b/JQGOK4Yo/co-occursubtitlesynchronization&quot; target=&quot;_blank&quot;&gt;
+      Trello
+  &lt;/a&gt;
+board, the function of each of which I have described in my 
+  &lt;a href=&quot;https://github.com/sypai/gsoc_19_ccx_proposal/&quot; target=&quot;_blank&quot;&gt;
+     proposal
+    &lt;/a&gt;
+in great detail.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SiftSRT&lt;/strong&gt; ✔️&lt;br /&gt;
+&lt;a href=&quot;https://github.com/sypai/SiftSRT&quot; target=&quot;_blank&quot;&gt;
+SiftSRT: A complete subtitle parser and editor
+&lt;/a&gt; (Check it out!).
+Whatever our Tool A and Tool B require, related to subtitle files,
+SiftSRT has got it covered!. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dactylogram&lt;/strong&gt; ✔️&lt;br /&gt;
+The complete 
+ &lt;a href=&quot;https://en.wikipedia.org/wiki/Acoustic_fingerprint&quot; target=&quot;_blank&quot;&gt;
+  audio-fingerprinting 
+&lt;/a&gt;
+ solution for &lt;em&gt;Tool A&lt;/em&gt;, using
+&lt;a href=&quot;https://github.com/acoustid/chromaprint&quot; target=&quot;_blank&quot;&gt;
+chromaprint
+ &lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Audio Segmentation&lt;/strong&gt; ✔️&lt;br /&gt;
+ Determination of presence of speech in an audio using
+ &lt;a href=&quot;https://webrtc.org/&quot; target=&quot;_blank&quot;&gt;
+ webrtc
+ &lt;/a&gt; for &lt;em&gt;Tool B&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alignment Algorithms&lt;/strong&gt; ️&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Tool A&lt;/strong&gt;   ✔&lt;br /&gt;
+  Internally, the audio fingerprints that dactylogram generates are
+  array of 32-bit integer. We don’t really work with them in this 
+  form, but the hashes look something like this:&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3594440902&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3594416326&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3598545270&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3598528806&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3615303462&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;3615435574&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3589233430&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3589233495&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3622787783&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3622794949&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;3623867085&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3623862925&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3623867357&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3590189549&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3573346669&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;2499605615&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2498559022&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2490230894&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2490230910&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2490362974&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;These fingerprints are treated usually on bit level. So it’s more useful to think of the 
+  fingerprint as a 2D black-and-white image where each white 
+  represents a 1 bit and each black pixel is a 0 bit:&lt;/p&gt;
+
+    &lt;p&gt;&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/fp.png&quot; alt=&quot;fp-2D&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;We use a small subset of bits from the hashes and
+  cross-match the two fingerprints. For each hash that appears
+  in both fingerprints, we will calculate the difference of offsets 
+  at which they appear in the fingerprints. We will build a histogram 
+  of these offset differences, do some filtering 
+  (effectively estimating a density function using gaussian kernels) and find peaks in it.
+  The peaks will tell us how do we need to align the two fingerprints 
+  to find matching segments in them.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/peaks.png&quot; alt=&quot;peaks&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;Using the alignment algorithm our tool detects the multiple segments
+  in the original file, separating the actual audiovisual content and the commercials.
+  Once the segments are identified we use SiftSRT to edit the subtitle document and
+  create a perfectly aligned subtitle file.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tool B  &lt;br /&gt;
+ For this tool we have two strings. A string containing the presence and absence
+ of&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+            &lt;h2&gt;&lt;span&gt;Where do we stand? &lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+            &lt;h2&gt;&lt;span&gt;What is yet to be done? &lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+            &lt;h2&gt;&lt;span&gt;What else can been done? &lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+            &lt;h2&gt;&lt;span&gt;GSoC: Endgame &lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+
 </description>
-        <pubDate>Fri, 23 Aug 2019 00:00:00 +0530</pubDate>
-        <link>http://localhost:4000/GSoC-1-Final-Work-Submission/</link>
-        <guid isPermaLink="true">http://localhost:4000/GSoC-1-Final-Work-Submission/</guid>
+        <pubDate>Sun, 25 Aug 2019 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/GSoC-Final-work-submissions/</link>
+        <guid isPermaLink="true">http://localhost:4000/GSoC-Final-work-submissions/</guid>
         
         
         <category>GSoC</category>
