@@ -7,7 +7,7 @@ image: assets/images/final_gsoc.png
 comments: true
 ---
 Surreal! My first Google Summer of Code has now come to an end. After almost 5 months
-(including the research pre-GSoC) it's time to pack up. This has been a journey full of learning. 
+(including the research pre-GSoC) it's time to pack up. This has been a journey full of learning. This post is to serve the purpose of the final report fot the work I have done during the summer.
 
 <div class="section-title margtop3rem">
             <h2><span>Important links &#9939;</span></h2>
@@ -200,7 +200,7 @@ go through the project's
        5. Produce a synchronized subtitle file, _co_oCCur-original.srt_.
        
        See it in action: 
-       <iframe width="700" height="315" src="https://www.youtube.com/embed/i3_HQIUoM6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       <iframe width="700" height="315" src="https://www.youtube.com/embed/i_HQIUoM6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
        
    - **Tool B**<br />
       ```css
@@ -215,7 +215,7 @@ go through the project's
       5. Produce a synchronized subtitle file, _co_oCCur-original.srt_.
       
       Check out what really happens!
-      <iframe width="700" height="315" src="https://www.youtube.com/embed/i3_HQIUoM6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="700" height="315" src="https://www.youtube.com/embed/i_HQIUoM6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <div class="section-title margtop3rem">
             <h2><span>What else can been done? </span></h2>
