@@ -5,14 +5,14 @@
     <description>Disciplined &amp; Relentless</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 26 Aug 2019 03:13:24 +0530</pubDate>
-    <lastBuildDate>Mon, 26 Aug 2019 03:13:24 +0530</lastBuildDate>
+    <pubDate>Mon, 26 Aug 2019 12:27:25 +0530</pubDate>
+    <lastBuildDate>Mon, 26 Aug 2019 12:27:25 +0530</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
         <title>GSoC : Final Work Submission! </title>
-        <description>&lt;p&gt;My first Google Summer of Code has now come to an end. It has been a
-surreal experience for me.&lt;/p&gt;
+        <description>&lt;p&gt;Surreal! My first Google Summer of Code has now come to an end. After almost 5 months
+(including the research pre-GSoC) it’s time to pack up. This has been a journey full of learning.&lt;/p&gt;
 
 &lt;div class=&quot;section-title margtop3rem&quot;&gt;
             &lt;h2&gt;&lt;span&gt;Important links &amp;#9939;&lt;/span&gt;&lt;/h2&gt;
@@ -148,13 +148,25 @@ chromaprint
 
     &lt;p&gt;Using the alignment algorithm our tool detects the multiple segments
   in the original file, separating the actual audiovisual content and the commercials.
-  Once the segments are identified we use SiftSRT to edit the subtitle document and
+Once the segments are identified we use SiftSRT to edit the subtitle document and
   create a perfectly aligned subtitle file.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Tool B  &lt;br /&gt;
- For this tool we have two strings. A string containing the presence and absence
- of&lt;/p&gt;
+ For this tool we have two strings containing speech information. 1 represents 
+ the presence of speech in th 10ms window while the absence of speech is represented by
+ 0;
+ The proposed algorithm for this tool, in  n simple terms, for each offset, 
+ will take a dot product of one string with the offset version of the other.
+ Computing this naively would result in an O
+ (n^2)​ solution. And “High speed is
+ really a priority” is clearly mentioned in the project’s idea page.​ ​ So, we will use
+ the Fast Fourier Transform (FFT), bringing the complexity down to​ ​ O(n log n)​ .
+ We will score the alignment based on the number of matching 1’s i.e. the
+ summation at all values of time of the product of both the strings,
+  This is ​ Convolution​. So we can rephrase this problem as, 
+  find the index τ which maximizes the value of the convolution of the sequences
+  This has been successfully developed but it has not produced results.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -162,17 +174,117 @@ chromaprint
             &lt;h2&gt;&lt;span&gt;Where do we stand? &lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;section-title margtop3rem&quot;&gt;
-            &lt;h2&gt;&lt;span&gt;What is yet to be done? &lt;/span&gt;&lt;/h2&gt;
-&lt;/div&gt;
+&lt;p&gt;At this point, we have a perfectly working Tool A, capable of doing 
+exactly what it is supposed to do. &lt;br /&gt; 
+&lt;strong&gt;Installation&lt;/strong&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Clone the repository from 
+&lt;a href=&quot;https://github.com/sypai/co-oCCur&quot; target=&quot;_blank&quot;&gt;
+   co-oCCur @ Github
+ &lt;/a&gt;
+&lt;br /&gt;
+    &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;  &lt;span class=&quot;nt&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;sypai&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;co-oCCur&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Navigate to &lt;code class=&quot;highlighter-rouge&quot;&gt;install &lt;/code&gt;directory and run &lt;code class=&quot;highlighter-rouge&quot;&gt;build.sh&lt;/code&gt;:&lt;br /&gt;
+    &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;  &lt;span class=&quot;nt&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;install&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;./&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.sh&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;The tool is now ready to use!&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Usage&lt;/strong&gt;&lt;br /&gt;
+ For a complete list of options and parameters, please
+go through the project’s 
+&lt;a href=&quot;https://github.com/sypai/co-oCCur/blob/master/README.md&quot; target=&quot;_blank&quot;&gt;
+     README
+   &lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sync!&lt;br /&gt;
+    &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;   &lt;span class=&quot;o&quot;&gt;./&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;co_oCCur&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-tool&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;tool&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;tool&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;specific&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/cooccur_wo_args.png&quot; alt=&quot;w/0-args&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tool A&lt;/strong&gt;&lt;br /&gt;
+    &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;  &lt;span class=&quot;o&quot;&gt;./&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;co_oCCur&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;original&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;audio&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.wav&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;modified&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;audio&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.wav&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;original&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;subtitle&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.srt&lt;/span&gt; 
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;What will this trigger?&lt;/p&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Set Tool A to be used for synchronization.&lt;/li&gt;
+      &lt;li&gt;Read the two audio files and generate audio fingerprints for both of them.&lt;/li&gt;
+      &lt;li&gt;Using the alignment algorithm for Tool A, detect the different segments.&lt;/li&gt;
+      &lt;li&gt;Use the information on segments edit the original subtitle file.&lt;/li&gt;
+      &lt;li&gt;Produce a synchronized subtitle file, &lt;em&gt;co_oCCur-original.srt&lt;/em&gt;.&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;See it in action:&lt;/p&gt;
+    &lt;iframe width=&quot;700&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/i3_HQIUoM6E&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tool B&lt;/strong&gt;&lt;br /&gt;
+    &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;   &lt;span class=&quot;o&quot;&gt;./&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;co_oCCur&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;modified&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;audio&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.wav&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;original&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;subtitle&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.srt&lt;/span&gt; 
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;What happens next?&lt;/p&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Set B as the tool to be used for synchronization.&lt;/li&gt;
+      &lt;li&gt;Read the audio file and create the audio string.&lt;/li&gt;
+      &lt;li&gt;Parse the subtitle file and create the subtitle string.&lt;/li&gt;
+      &lt;li&gt;Using the alignment algorithm for Tool B, detect the different blocks.&lt;/li&gt;
+      &lt;li&gt;Use the information on segments edit the original subtitle file.&lt;/li&gt;
+      &lt;li&gt;Produce a synchronized subtitle file, &lt;em&gt;co_oCCur-original.srt&lt;/em&gt;.&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;p&gt;Check out what really happens!&lt;/p&gt;
+    &lt;iframe width=&quot;700&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/i3_HQIUoM6E&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;section-title margtop3rem&quot;&gt;
             &lt;h2&gt;&lt;span&gt;What else can been done? &lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
+&lt;p&gt;The project is in it’s early stage and will keep evolving. The available functions, usage instructions et cetera are 
+expected to refactor over time. There are several ideas and features that can be added to this project.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Currently only SRT is the subtitle format that this project supports. Support for other formats can be added.&lt;/li&gt;
+  &lt;li&gt;The misalignment of subtitles because of different encoding settings in videos causes a varying temporal offset. This is
+also a great feature to add in to our project. &lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Also, contribution of any kind is more than welcome. Feel free to raise an issue tracker here: 
+&lt;a href=&quot;https://github.com/sypai/co-oCCur/issues&quot; target=&quot;_blank&quot;&gt;
+   here
+   &lt;/a&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;section-title margtop3rem&quot;&gt;
             &lt;h2&gt;&lt;span&gt;GSoC: Endgame &lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
+
+&lt;p&gt;Before the final goodbyes, I would like to thank my mentor, 
+&lt;a href=&quot;https://github.com/cfsmp3&quot; target=&quot;_blank&quot;&gt;
+Carlos Fernandez Sanz 
+&lt;/a&gt; 
+for accepting my proposal, 
+providing guidance whenever I asked, and believing in me when things didn’t go as intended. I am grateful. 
+&lt;br /&gt;Shout out to the CCExtractor community for being so welcoming and supportive. 
+I am fortunate to be a part of the 
+&lt;a href=&quot;https://ccextractor.org&quot; target=&quot;_blank&quot;&gt;
+CCExtractor Development 
+&lt;/a&gt;
+&lt;br /&gt;
+End? No, the journey doesn’t end here, it begins.. I’m sure I will stick around as a regular contributor.&lt;/p&gt;
+
+&lt;blockquote class=&quot;primary right&quot;&gt;
+&lt;em&gt;&quot;I pledge my life and honor to the Night's Watch, for this night and all the nights to come.&quot;&lt;/em&gt;
+&lt;br /&gt;
+&lt;/blockquote&gt;
 
 </description>
         <pubDate>Sun, 25 Aug 2019 00:00:00 +0530</pubDate>

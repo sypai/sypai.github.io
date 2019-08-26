@@ -6,8 +6,8 @@ categories: [ GSoC ]
 image: assets/images/final_gsoc.png
 comments: true
 ---
-My first Google Summer of Code has now come to an end. It has been a
-surreal experience for me. 
+Surreal! My first Google Summer of Code has now come to an end. After almost 5 months
+(including the research pre-GSoC) it's time to pack up. This has been a journey full of learning. 
 
 <div class="section-title margtop3rem">
             <h2><span>Important links &#9939;</span></h2>
@@ -133,32 +133,126 @@ chromaprint
   
    Using the alignment algorithm our tool detects the multiple segments
   in the original file, separating the actual audiovisual content and the commercials.
-  Once the segments are identified we use SiftSRT to edit the subtitle document and
-  create a perfectly aligned subtitle file.
+   Once the segments are identified we use SiftSRT to edit the subtitle document and
+  create a perfectly aligned subtitle file. 
   
  - Tool B  <br/>
- For this tool we have two strings. A string containing the presence and absence
- of 
-
-
+ For this tool we have two strings containing speech information. 1 represents 
+ the presence of speech in th 10ms window while the absence of speech is represented by
+ 0;
+ The proposed algorithm for this tool, in  n simple terms, for each offset, 
+ will take a dot product of one string with the offset version of the other.
+ Computing this naively would result in an O
+ (n^2)​ solution. And “High speed is
+ really a priority” is clearly mentioned in the project’s idea page.​ ​ So, we will use
+ the Fast Fourier Transform (FFT), bringing the complexity down to​ ​ O(n log n)​ .
+ We will score the alignment based on the number of matching 1's i.e. the
+ summation at all values of time of the product of both the strings,
+  This is ​ Convolution​. So we can rephrase this problem as, 
+  find the index τ which maximizes the value of the convolution of the sequences
+  This has been successfully developed but it has not produced results.
 
 <div class="section-title margtop3rem">
             <h2><span>Where do we stand? </span></h2>
 </div>
 
-<div class="section-title margtop3rem">
-            <h2><span>What is yet to be done? </span></h2>
-</div>
+At this point, we have a perfectly working Tool A, capable of doing 
+exactly what it is supposed to do. <br /> 
+**Installation**<br />
+- Clone the repository from 
+<a href="https://github.com/sypai/co-oCCur" target="_blank">
+     co-oCCur @ Github
+   </a>
+<br  />
+    ```css
+    git clone https://github.com/sypai/co-oCCur
+    ```
+- Navigate to `install `directory and run `build.sh`:<br/>
+     ```css
+    cd install
+    ./build.sh
+    ```
+
+    The tool is now ready to use!
+
+**Usage**<br/>
+ For a complete list of options and parameters, please
+go through the project's 
+<a href="https://github.com/sypai/co-oCCur/blob/master/README.md" target="_blank">
+     README
+   </a>.
+   - Sync!<br />
+       ```css
+        ./co_oCCur -tool [tool options] <tool specific arguments>
+       ```
+    
+        <img class="featured-image img-fluid" src="{{ site.baseurl }}/assets/images/cooccur_wo_args.png" alt="w/0-args">
+   
+   - **Tool A**<br />
+       ```css
+       ./co_oCCur -t A -o /path/to/original/audio.wav -m /path/to/modified/audio.wav -s /path/to/original/subtitle.srt 
+       ```
+       What will this trigger?
+       1. Set Tool A to be used for synchronization.
+       2. Read the two audio files and generate audio fingerprints for both of them.
+       3. Using the alignment algorithm for Tool A, detect the different segments.
+       4. Use the information on segments edit the original subtitle file.
+       5. Produce a synchronized subtitle file, _co_oCCur-original.srt_.
+       
+       See it in action: 
+       <iframe width="700" height="315" src="https://www.youtube.com/embed/i3_HQIUoM6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       
+   - **Tool B**<br />
+      ```css
+        ./co_oCCur -t B -o /path/to/modified/audio.wav -s /path/to/original/subtitle.srt 
+      ```
+      What happens next?
+      1. Set B as the tool to be used for synchronization.
+      2. Read the audio file and create the audio string.
+      3. Parse the subtitle file and create the subtitle string.
+      4. Using the alignment algorithm for Tool B, detect the different blocks.
+      4. Use the information on segments edit the original subtitle file.
+      5. Produce a synchronized subtitle file, _co_oCCur-original.srt_.
+      
+      Check out what really happens!
+      <iframe width="700" height="315" src="https://www.youtube.com/embed/i3_HQIUoM6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <div class="section-title margtop3rem">
             <h2><span>What else can been done? </span></h2>
 </div>
+The project is in it's early stage and will keep evolving. The available functions, usage instructions et cetera are 
+expected to refactor over time. There are several ideas and features that can be added to this project.
+- Currently only SRT is the subtitle format that this project supports. Support for other formats can be added.
+- The misalignment of subtitles because of different encoding settings in videos causes a varying temporal offset. This is
+also a great feature to add in to our project. <br/>
 
+Also, contribution of any kind is more than welcome. Feel free to raise an issue tracker here: 
+<a href="https://github.com/sypai/co-oCCur/issues" target="_blank">
+   here
+   </a>.
+ 
 <div class="section-title margtop3rem">
             <h2><span>GSoC: Endgame </span></h2>
 </div>
 
+Before the final goodbyes, I would like to thank my mentor, 
+<a href="https://github.com/cfsmp3" target="_blank">
+Carlos Fernandez Sanz 
+</a> 
+for accepting my proposal, 
+providing guidance whenever I asked, and believing in me when things didn't go as intended. I am grateful. 
+<br />Shout out to the CCExtractor community for being so welcoming and supportive. 
+I am fortunate to be a part of the 
+<a href="https://ccextractor.org" target="_blank">
+CCExtractor Development 
+</a>
+<br />
+End? No, the journey doesn't end here, it begins.. I'm sure I will stick around as a regular contributor. 
 
+<blockquote class="primary right">
+<em>"I pledge my life and honor to the Night's Watch, for this night and all the nights to come."</em>
+<br>
+</blockquote>
 
 
  
