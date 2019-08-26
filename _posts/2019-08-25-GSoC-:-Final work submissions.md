@@ -7,7 +7,7 @@ image: assets/images/final_gsoc.png
 comments: true
 ---
 Surreal! My first Google Summer of Code has now come to an end. After almost 5 months
-(including the research pre-GSoC) it's time to pack up. This has been a journey full of learning. This post is to serve the purpose of the final report fot the work I have done during the summer.
+(including the research pre-GSoC) it's time to pack up. This has been a journey full of learning. This post is to serve the purpose of the final report for the work I have done during the summer.
 
 <div class="section-title margtop3rem">
             <h2><span>Important links &#9939;</span></h2>
