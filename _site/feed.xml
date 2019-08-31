@@ -5,8 +5,8 @@
     <description>Disciplined &amp; Relentless</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 31 Aug 2019 21:24:08 +0530</pubDate>
-    <lastBuildDate>Sat, 31 Aug 2019 21:24:08 +0530</lastBuildDate>
+    <pubDate>Sat, 31 Aug 2019 21:52:47 +0530</pubDate>
+    <lastBuildDate>Sat, 31 Aug 2019 21:52:47 +0530</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -79,13 +79,47 @@ here&lt;/a&gt; is what wikipedia has to say. An acoustic fingerprint is a conden
 &lt;p&gt;&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/fp_2d.png&quot; alt=&quot;fp-2D&quot; /&gt;&lt;/p&gt;
 
 &lt;div class=&quot;section-title margtop3rem&quot;&gt;
+               &lt;h2&gt;&lt;span&gt;How has this anything to do with subtitles? &lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;p&gt;Audio fingerprints are generated for both the audio files, then we compare different sections of
+original audio to the modified audio, based on which we identify the different segments of the original
+video. Using the time information of each segment we parse and adjust the subtitles.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;How are fingerprints compared?
+The naive way to compare two fingerprints is to XOR the hashes and count the number
+of non-zero bits in the result. If you have two identical fingerprints, the result will be zero.
+ If you have two compately different fingerprints, you will see around 50% split between zero
+ and non-zero bits, i.e. the number of non-zero bits will be about 16 for every hash. Which results
+ in very poor results. Obviously the fingerprints of the two files have different timings, thus the hashes we
+ extract out of the original sample will have an offset that is relative to the modified sample. &lt;br /&gt; &lt;br /&gt;
+We will use a small subset of bits from the hashes and cross-match the two fingerprints.
+For each hash that appears in both fingerprints, we will calculate the difference of offsets
+at which they appear in the fingerprints. We build a histogram of these offset differences,
+do some filtering (effectively estimating a density function using gaussian kernels) and find
+peaks in it. The peaks will tell us how do we need to align the two fingerprints to find matching
+segments in them&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/alignFP.png&quot; alt=&quot;fp-2D&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Finding matching regions
+For this we XOR the aligned fingerprints, and calculate the bit error rates and apply a gaussian filter with a relatively
+large kernel. Taking the gradient, we find the local maxima/minima. These result in the
+segment boundaries.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/scoringFP.png&quot; alt=&quot;fp-2D&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
              &lt;h2&gt;&lt;span&gt;Testing the Tool &lt;/span&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;p&gt;For testing the tool, I have used a server which was provided to me by my organization
 which has a ample amount of samples. Quantitatively speaking, to test the tool’s speed
 and accuracy I have used 16 different valid sample files. Out of the files used
 I have got accurate results for 14 samples, 1 sample gave a partial result (perfect results upto 75% of the video) and a sample on which
-the tool fails to work. Moreover, it takes an average 26.5 seconds to produce the results. &lt;br /&gt;
+the tool fails to work. Moreover, it takes an average 27.5 seconds to produce the results. &lt;br /&gt;
 The reason behind the 2 failing results is the section which decides on the basis
 of comparison results of fingerprints whether it’s a match, a local match or a no match.&lt;/p&gt;
 

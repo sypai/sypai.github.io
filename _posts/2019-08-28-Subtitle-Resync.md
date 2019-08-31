@@ -71,6 +71,41 @@ here</a> is what wikipedia has to say. An acoustic fingerprint is a condensed di
 
    <img class="featured-image img-fluid" src="{{ site.baseurl }}/assets/images/fp_2d.png" alt="fp-2D">
 
+
+<div class="section-title margtop3rem">
+               <h2><span>How has this anything to do with subtitles? </span></h2>
+</div>
+Audio fingerprints are generated for both the audio files, then we compare different sections of
+original audio to the modified audio, based on which we identify the different segments of the original
+video. Using the time information of each segment we parse and adjust the subtitles.
+
+- **How are fingerprints compared?**<br>
+The naive way to compare two fingerprints is to XOR the hashes and count the number
+of non-zero bits in the result. If you have two identical fingerprints, the result will be zero.
+ If you have two compately different fingerprints, you will see around 50% split between zero
+ and non-zero bits, i.e. the number of non-zero bits will be about 16 for every hash. Which results
+ in very poor results. Obviously the fingerprints of the two files have different timings, thus the hashes we
+ extract out of the original sample will have an offset that is relative to the modified sample. <br> <br>
+
+- **Aligning the Fingerprints**
+We will use a small subset of bits from the hashes and cross-match the two fingerprints.
+For each hash that appears in both fingerprints, we will calculate the difference of offsets
+at which they appear in the fingerprints. We build a histogram of these offset differences,
+do some filtering (effectively estimating a density function using gaussian kernels) and find
+peaks in it. The peaks will tell us how do we need to align the two fingerprints to find matching
+segments in them
+
+ <img class="featured-image img-fluid" src="{{ site.baseurl }}/assets/images/alignFP.png" alt="fp-2D">
+
+- **Finding matching regions**
+For this we XOR the aligned fingerprints, and calculate the bit error rates and apply a gaussian filter with a relatively
+large kernel. Taking the gradient, we find the local maxima/minima. These result in the
+segment boundaries.
+
+<img class="featured-image img-fluid" src="{{ site.baseurl }}/assets/images/scoringFP.png" alt="fp-2D">
+<br>
+This is how we segment our original files.
+
 <div class="section-title margtop3rem">
              <h2><span>Testing the Tool </span></h2>
 </div>
@@ -78,11 +113,9 @@ For testing the tool, I have used a server which was provided to me by my organi
 which has a ample amount of samples. Quantitatively speaking, to test the tool's speed
 and accuracy I have used 16 different valid sample files. Out of the files used
 I have got accurate results for 14 samples, 1 sample gave a partial result (perfect results upto 75% of the video) and a sample on which
-the tool fails to work. Moreover, it takes an average 26.5 seconds to produce the results. <br>
+the tool fails to work. Moreover, it takes an average 27.5 seconds to produce the results. <br>
 The reason behind the 2 failing results is the section which decides on the basis
 of comparison results of fingerprints whether it's a match, a local match or a no match.
-
-
 
   <div class="section-title margtop3rem">
                <h2><span>What can be improved? </span></h2>
