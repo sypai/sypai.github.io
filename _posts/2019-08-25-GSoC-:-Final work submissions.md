@@ -213,9 +213,6 @@ go through the project's
       4. Using the alignment algorithm for Tool B, detect the different blocks.
       4. Use the information on segments edit the original subtitle file.
       5. Produce a synchronized subtitle file, _co_oCCur-original.srt_.
-      
-      Check out what really happens!
-      <iframe width="700" height="315" src="https://www.youtube.com/embed/i_HQIUoM6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <div class="section-title margtop3rem">
             <h2><span>What else can been done? </span></h2>
