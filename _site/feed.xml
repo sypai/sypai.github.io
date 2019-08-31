@@ -5,8 +5,8 @@
     <description>Disciplined &amp; Relentless</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 31 Aug 2019 21:15:46 +0530</pubDate>
-    <lastBuildDate>Sat, 31 Aug 2019 21:15:46 +0530</lastBuildDate>
+    <pubDate>Sat, 31 Aug 2019 21:24:08 +0530</pubDate>
+    <lastBuildDate>Sat, 31 Aug 2019 21:24:08 +0530</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -77,10 +77,6 @@ here&lt;/a&gt; is what wikipedia has to say. An acoustic fingerprint is a conden
    instead it can be thought of as a 2D black-and-white image. Black is a 0 bit and white is a 1 bit.&lt;/p&gt;
 
 &lt;p&gt;&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/fp_2d.png&quot; alt=&quot;fp-2D&quot; /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;section-title margtop3rem&quot;&gt;
-               &lt;h2&gt;&lt;span&gt;How has this anything to do with subtitles? &lt;/span&gt;&lt;/h2&gt;
-&lt;/div&gt;
 
 &lt;div class=&quot;section-title margtop3rem&quot;&gt;
              &lt;h2&gt;&lt;span&gt;Testing the Tool &lt;/span&gt;&lt;/h2&gt;

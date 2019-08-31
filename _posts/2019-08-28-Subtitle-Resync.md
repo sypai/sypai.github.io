@@ -72,10 +72,6 @@ here</a> is what wikipedia has to say. An acoustic fingerprint is a condensed di
    <img class="featured-image img-fluid" src="{{ site.baseurl }}/assets/images/fp_2d.png" alt="fp-2D">
 
 <div class="section-title margtop3rem">
-               <h2><span>How has this anything to do with subtitles? </span></h2>
-</div>
-
-<div class="section-title margtop3rem">
              <h2><span>Testing the Tool </span></h2>
 </div>
 For testing the tool, I have used a server which was provided to me by my organization
