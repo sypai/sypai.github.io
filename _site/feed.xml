@@ -5,14 +5,142 @@
     <description>Disciplined &amp; Relentless</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 26 Aug 2019 12:39:34 +0530</pubDate>
-    <lastBuildDate>Mon, 26 Aug 2019 12:39:34 +0530</lastBuildDate>
+    <pubDate>Sat, 31 Aug 2019 19:20:00 +0530</pubDate>
+    <lastBuildDate>Sat, 31 Aug 2019 19:20:00 +0530</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Subtitle Resync: Using Audio fingerprinting to synchronize subtitles</title>
+        <description>&lt;p&gt;Closed Captions (CC) and subtitles enhance an audiovisual content by providing speech information and description of representative events in a textual format.
+Captioning is especially used as an aid for people with hearing loss or deafness, but it’s use
+is definitely not limited to that domain. For instance, it is frequently the case that captions are necessary
+to watch a TV show in a noisy surrounding or when one is not familiar with the language or accent
+available in the audio streams. &lt;br /&gt;&lt;br /&gt;
+For an ideal subtitle file, the subtitles are perfectly aligned with the base audiovisual content.
+For subtitles to align their timing must align with the corresponding sequence in the audiovisual content.&lt;/p&gt;
+
+&lt;p&gt;There is a very common case in which we have an audiovisual content with some parts of the previous
+episode, a lot of commercials throughout and some seconds of the next episode. More commonly a &lt;code class=&quot;highlighter-rouge&quot;&gt;.ts&lt;/code&gt;, a transport
+stream file involves such use case. The subtitles extracted from it will contain the subtitle for all the parts including the commercials.
+Now we don’t ever use such videos instead we prefer clean recordings devoid of any commercials or breaks in it.
+Now using the original subtitles will result in a horrible experience causing a sustained exasperation
+to the user.&lt;/p&gt;
+
+&lt;p&gt;The tool &lt;code class=&quot;highlighter-rouge&quot;&gt;Subtitle Resync&lt;/code&gt; takes in the two versions of the same audiovisual
+content, the subtitle file for the original video and generates a subtitle file
+which is perfectly in-sync with the clean recording. The tool takes about 25 seconds
+to create a synced subtitle file so that the viewer does not have any burden before the &lt;em&gt;fun&lt;/em&gt;
+starts.&lt;/p&gt;
+
+&lt;blockquote class=&quot;primary link1&quot;&gt;
+&lt;em&gt;&lt;a href=&quot;https://github.com/sypai/co-oCCur&quot; target=&quot;_blank&quot;&gt;
+         https://github.com/sypai/co-oCCur
+       &lt;/a&gt;&lt;/em&gt;
+&lt;br /&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+             &lt;h2&gt;&lt;span&gt;Why audio fingerprinting? &lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;p&gt;There is lot already written and discussed over the internet on &lt;em&gt;what&lt;/em&gt; is audio fingerprinting. To start
+with,
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Acoustic_fingerprint&quot; target=&quot;_blank&quot;&gt;
+here&lt;/a&gt; is what wikipedia has to say. An acoustic fingerprint is a condensed digital summary, a fingerprint,
+ deterministically generated from an audio signal, that can be used to identify an audio sample.
+ &lt;br /&gt;&lt;br /&gt;
+ Practical uses of acoustic fingerprinting include identifying songs, melodies, tunes etc. YES! this is
+ what the magical
+  &lt;a href=&quot;https://www.shazam.com/gb&quot; target=&quot;_blank&quot;&gt;
+ Shazam&lt;/a&gt;
+ uses to recognize a song from the cosmic corpus of audio.
+ &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Our project uses
+ &lt;a href=&quot;https://acoustid.org/chromaprint&quot; target=&quot;_blank&quot;&gt;
+  chromaprint&lt;/a&gt;, an open source audio fingerprinting library. It works with &lt;em&gt;spectrograms&lt;/em&gt;,
+  which are visual representations of the spectrum of frequencies in a sound as these vary with time.
+  Chromaprint converts the input audio to the sampling rate of 11025 Hertz and using a FFT(Fast Fourier Transform)
+  window size of 4096 with a 2/3 overlap. The algorithm behind chromaprint is complex. Nevertheless,
+  the audio fingerprint are array of 32-bit integers. These are hashes of some arbitrary audio features
+  over a short period of time. A new hash is generated every 0.1238 seconds and each hash covers
+  2.6 seconds of audio.&lt;/p&gt;
+
+&lt;p&gt;The audio fingerprints look like this:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;  array([3208039586, 3207744690, 3207744642, 3177323714, 3187031106,
+                2650221586, 2650025010, 2683053106, 2682795042, 2594778150,
+                2594909479, 2594782997, 2594709188, 2326298244])
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The further processing of these audio fingerprints rarely deal with them in this form,
+   instead it can be thought of as a 2D black-and-white image. Black is a 0 bit and white is a 1 bit.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;featured-image img-fluid&quot; src=&quot;/assets/images/fp_2d.png&quot; alt=&quot;fp-2D&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+               &lt;h2&gt;&lt;span&gt;How has this anything to do with subtitles? &lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+             &lt;h2&gt;&lt;span&gt;Testing the Tool &lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;p&gt;For testing the tool, I have used a server which was provided to me by my organization
+which has a ample amount of samples. Quantitatively speaking, to test the tool’s speed
+and accuracy I have used 16 different valid sample files. Out of the files used
+I have got accurate results for 14 samples, 1 sample gave a partial result (perfect results upto 75% of the video) and a sample on which
+the tool fails to work. Moreover, it takes an average 26.5 seconds to produce the results
+The reason behind the 2 failing results is the section which decides on the basis
+of comparison results of fingerprints whether it’s a match, a local match or a no match.&lt;/p&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+               &lt;h2&gt;&lt;span&gt;What can be improved? &lt;/span&gt;&lt;/h2&gt;
+  &lt;/div&gt;
+&lt;p&gt;The project over the course of time will keep improving. The improvements
+  that I would like to make in the near future are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Currently for the computation of FFT, I have used kissFFT, a lightweight easy to use open source library.
+   I would like to to replace it with FFmpeg’s FFT functions which would make the fingerprint generation process faster.&lt;/li&gt;
+  &lt;li&gt;The final steps of deciding the match results definitely are to be improved. As mentioned in the &lt;em&gt;Testing&lt;/em&gt;
+   section there are a few cases which are not producing results due to the wrong deduction.
+ &lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Also, contribution of any kind is more than welcome. If you have any idea or an issue feel free to open a PR or an issue
+in the project repository.&lt;/p&gt;
+
+&lt;div class=&quot;section-title margtop3rem&quot;&gt;
+               &lt;h2&gt;&lt;span&gt;Conclusion &lt;/span&gt;&lt;/h2&gt;
+  &lt;/div&gt;
+&lt;p&gt;I have developed this project during Google Summer of Code, 2019 which I was fortunate to participate in
+  under CCExtractor Development. Obviously a lot more can be done on this but I am glad that finally I
+  have an open source project. I am grateful to my mentor &lt;a href=&quot;https://github.com/cfsmp3&quot; target=&quot;_blank&quot;&gt;
+  Carlos Fernandez Sanz &lt;/a&gt; who gave me this opportunity and helped me throughout my journey.
+  &lt;br /&gt;
+  I hope that anyone reading this will check out the &lt;strong&gt;co-oCCur&lt;/strong&gt; project and drop a few starts on me, or better yet, fork it!&lt;/p&gt;
+&lt;blockquote class=&quot;primary link1&quot;&gt;
+&lt;em&gt;&lt;a href=&quot;https://github.com/sypai/co-oCCur&quot; target=&quot;_blank&quot;&gt;
+         https://github.com/sypai/co-oCCur
+       &lt;/a&gt;&lt;/em&gt;
+&lt;br /&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br /&gt;
+  So long!&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 28 Aug 2019 00:00:00 +0530</pubDate>
+        <link>http://localhost:4000/Subtitle-Resync-Using-audio-fingerprinting-to-synchronize-subtitles/</link>
+        <guid isPermaLink="true">http://localhost:4000/Subtitle-Resync-Using-audio-fingerprinting-to-synchronize-subtitles/</guid>
+        
+        
+        <category>GSoC</category>
+        
+      </item>
     
       <item>
         <title>GSoC : Final Work Submission! </title>
         <description>&lt;p&gt;Surreal! My first Google Summer of Code has now come to an end. After almost 5 months
-(including the research pre-GSoC) it’s time to pack up. This has been a journey full of learning.&lt;/p&gt;
+(including the research pre-GSoC) it’s time to pack up. This has been a journey full of learning. This post is to serve the purpose of the final report for the work I have done during the summer.&lt;/p&gt;
 
 &lt;div class=&quot;section-title margtop3rem&quot;&gt;
             &lt;h2&gt;&lt;span&gt;Important links &amp;#9939;&lt;/span&gt;&lt;/h2&gt;
@@ -226,7 +354,7 @@ go through the project’s
     &lt;/ol&gt;
 
     &lt;p&gt;See it in action:&lt;/p&gt;
-    &lt;iframe width=&quot;700&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/i3_HQIUoM6E&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+    &lt;iframe width=&quot;700&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/i_HQIUoM6E&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Tool B&lt;/strong&gt;&lt;br /&gt;
     &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -243,7 +371,7 @@ go through the project’s
     &lt;/ol&gt;
 
     &lt;p&gt;Check out what really happens!&lt;/p&gt;
-    &lt;iframe width=&quot;700&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/i3_HQIUoM6E&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+    &lt;iframe width=&quot;700&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/i_HQIUoM6E&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
