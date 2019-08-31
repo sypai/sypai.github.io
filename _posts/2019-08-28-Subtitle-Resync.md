@@ -82,7 +82,7 @@ For testing the tool, I have used a server which was provided to me by my organi
 which has a ample amount of samples. Quantitatively speaking, to test the tool's speed
 and accuracy I have used 16 different valid sample files. Out of the files used
 I have got accurate results for 14 samples, 1 sample gave a partial result (perfect results upto 75% of the video) and a sample on which
-the tool fails to work. Moreover, it takes an average 26.5 seconds to produce the results
+the tool fails to work. Moreover, it takes an average 26.5 seconds to produce the results. <br>
 The reason behind the 2 failing results is the section which decides on the basis
 of comparison results of fingerprints whether it's a match, a local match or a no match.
 

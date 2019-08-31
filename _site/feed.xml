@@ -5,8 +5,8 @@
     <description>Disciplined &amp; Relentless</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 31 Aug 2019 19:20:00 +0530</pubDate>
-    <lastBuildDate>Sat, 31 Aug 2019 19:20:00 +0530</lastBuildDate>
+    <pubDate>Sat, 31 Aug 2019 21:15:46 +0530</pubDate>
+    <lastBuildDate>Sat, 31 Aug 2019 21:15:46 +0530</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>
@@ -89,7 +89,7 @@ here&lt;/a&gt; is what wikipedia has to say. An acoustic fingerprint is a conden
 which has a ample amount of samples. Quantitatively speaking, to test the tool’s speed
 and accuracy I have used 16 different valid sample files. Out of the files used
 I have got accurate results for 14 samples, 1 sample gave a partial result (perfect results upto 75% of the video) and a sample on which
-the tool fails to work. Moreover, it takes an average 26.5 seconds to produce the results
+the tool fails to work. Moreover, it takes an average 26.5 seconds to produce the results. &lt;br /&gt;
 The reason behind the 2 failing results is the section which decides on the basis
 of comparison results of fingerprints whether it’s a match, a local match or a no match.&lt;/p&gt;
 
@@ -129,8 +129,8 @@ in the project repository.&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 28 Aug 2019 00:00:00 +0530</pubDate>
-        <link>http://localhost:4000/Subtitle-Resync-Using-audio-fingerprinting-to-synchronize-subtitles/</link>
-        <guid isPermaLink="true">http://localhost:4000/Subtitle-Resync-Using-audio-fingerprinting-to-synchronize-subtitles/</guid>
+        <link>http://localhost:4000/Subtitle-Resync/</link>
+        <guid isPermaLink="true">http://localhost:4000/Subtitle-Resync/</guid>
         
         
         <category>GSoC</category>
@@ -369,9 +369,6 @@ go through the project’s
       &lt;li&gt;Use the information on segments edit the original subtitle file.&lt;/li&gt;
       &lt;li&gt;Produce a synchronized subtitle file, &lt;em&gt;co_oCCur-original.srt&lt;/em&gt;.&lt;/li&gt;
     &lt;/ol&gt;
-
-    &lt;p&gt;Check out what really happens!&lt;/p&gt;
-    &lt;iframe width=&quot;700&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/i_HQIUoM6E&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
