@@ -7,7 +7,7 @@ var documents = [{
     }, {
     "id": 1,
     "url": "http://localhost:4000/final_report",
-    "title": "About",
+    "title": "FINAL_REPORT",
     "body": "            FINAL REPORT:               Project Repository:                    https://github. com/sypai/co-oCCur                                 User Documentation:                      https://github. com/sypai/co-oCCur/blob/master/docs/usage. adoc                                 Technical Documentation:                      https://github. com/sypai/co-oCCur/blob/master/docs/code_documentation. adoc                                 Blog Entries:        Work Product link submitted:                  https://sypai. github. io/GSoC-Final-work-submissions/                    For Subtitle Resync:                  https://sypai. github. io/Subtitle-Resync/                         "
     }, {
     "id": 2,
