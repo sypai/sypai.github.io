@@ -14,14 +14,14 @@ Surreal! My first Google Summer of Code has now come to an end. After almost 5 m
  </div>
  
  - **Project repository**  <br/>
- <a href="https://github.com/sypai/co-oCCur" target="_blank">
-     co-oCCur @ Github
+ <a href="https://github.com/CCExtractor/Subtitle-Resync" target="_blank">
+     Subtitle-Resync @ Github
    </a>
    
    
   - **Milestone & deliverable Board**<br/>
   <a href="https://trello.com/b/JQGOK4Yo/co-occursubtitlesynchronization" target="_blank">
-      co-oCCur @ Trello
+      Subtitle-Resync @ Trello
   </a>
   
   
@@ -41,7 +41,7 @@ Surreal! My first Google Summer of Code has now come to an end. After almost 5 m
   </a>
   
 <div class="section-title margtop3rem">
-            <h2><span>co-oCCur: High-speed subtitle synchronization </span></h2>
+            <h2><span>Subtitle-Resync: High-speed subtitle synchronization </span></h2>
 </div>
 For an ideal subtitle file, the subtitles are perfectly aligned with
  the base audiovisual content. In other words, the audio and the
@@ -50,18 +50,13 @@ The misalignment of the subtitle files is the underlying problem
  that this project aims to solve so that the viewer does not have 
 any burden before the fun starts (this is what matters).
 
-**Tool A** <br/>
-Use case: Synchronization of subtitles between two versions
+**Use case** <br/>
+Synchronization of subtitles between two versions
  (with and without commercials) of the same 
  audiovisual content. It takes as input the original audiovisual 
  content, the edited audiovisual content and the subtitles 
  document of the original audiovisual content.<br />
-**Tool B** <br/>
-Use case: Synchronization of subtitles between two versions
-of the same audiovisual content in the absence of the original
-content. It takes as input the modified audiovisual content
-and the subtitle document for the original audiovisual content.
- 
+
 <div class="section-title margtop3rem">
             <h2><span>What has been done? </span></h2>
 </div>
@@ -101,8 +96,10 @@ chromaprint
  webrtc
  </a> for _Tool B_.
  
-  **Alignment Algorithms** ️<br />
- - **Tool A**   ✔<br/>
+  **Alignment Algorithm** ️<br />
+ - **Behind the scenes!**   ✔<br/>
+ There is a lot going on under the hood. Everything about
+ the working and more can be found in this post.
   Internally, the audio fingerprints that dactylogram generates are
   array of 32-bit integer. We don't really work with them in this 
   form, but the hashes look something like this:
@@ -134,38 +131,22 @@ chromaprint
    Using the alignment algorithm our tool detects the multiple segments
   in the original file, separating the actual audiovisual content and the commercials.
    Once the segments are identified we use SiftSRT to edit the subtitle document and
-  create a perfectly aligned subtitle file. 
-  
- - Tool B  <br/>
- For this tool we have two strings containing speech information. 1 represents 
- the presence of speech in th 10ms window while the absence of speech is represented by
- 0;
- The proposed algorithm for this tool, in  n simple terms, for each offset, 
- will take a dot product of one string with the offset version of the other.
- Computing this naively would result in an O
- (n^2)​ solution. And “High speed is
- really a priority” is clearly mentioned in the project’s idea page.​ ​ So, we will use
- the Fast Fourier Transform (FFT), bringing the complexity down to​ ​ O(n log n)​ .
- We will score the alignment based on the number of matching 1's i.e. the
- summation at all values of time of the product of both the strings,
-  This is ​ Convolution​. So we can rephrase this problem as, 
-  find the index τ which maximizes the value of the convolution of the sequences
-  This has been successfully developed but it has not produced results.
+  create a perfectly aligned subtitle file.
 
 <div class="section-title margtop3rem">
             <h2><span>Where do we stand? </span></h2>
 </div>
 
-At this point, we have a perfectly working Tool A, capable of doing 
+At this point, we have a perfectly working tool, capable of doing
 exactly what it is supposed to do. <br /> 
 **Installation**<br />
 - Clone the repository from 
-<a href="https://github.com/sypai/co-oCCur" target="_blank">
-     co-oCCur @ Github
+<a href="https://github.com/CCExtractor/Subtitle-Resync" target="_blank">
+     Subtitle-Resync @ Github
    </a>
 <br  />
     ```css
-    git clone https://github.com/sypai/co-oCCur
+    git clone https://github.com/CCExtractor/Subtitle-Resync.git
     ```
 - Navigate to `install `directory and run `build.sh`:<br/>
      ```css
@@ -178,41 +159,28 @@ exactly what it is supposed to do. <br />
 **Usage**<br/>
  For a complete list of options and parameters, please
 go through the project's 
-<a href="https://github.com/sypai/co-oCCur/blob/master/README.md" target="_blank">
+<a href="https://github.com/CCExtractor/Subtitle-Resync/blob/master/README.md" target="_blank">
      README
    </a>.
-   - Sync!<br />
+   - Running Subtitle-Resync without any instruments lists all the parameters that are to be passed.<br />
        ```css
-        ./co_oCCur -tool [tool options] <tool specific arguments>
+        ./resync -o /path/to/original/audio.wav -m /path/to/modified/audio.wav -s /path/to/original/subtitle.srt
        ```
     
         <img class="featured-image img-fluid" src="{{ site.baseurl }}/assets/images/cooccur_wo_args.png" alt="w/0-args">
    
-   - **Tool A**<br />
+   - **Sync!**<br />
        ```css
-       ./co_oCCur -t A -o /path/to/original/audio.wav -m /path/to/modified/audio.wav -s /path/to/original/subtitle.srt 
+       ./resync -o /path/to/original/audio.wav -m /path/to/modified/audio.wav -s /path/to/original/subtitle.srt
        ```
        What will this trigger?
-       1. Set Tool A to be used for synchronization.
-       2. Read the two audio files and generate audio fingerprints for both of them.
-       3. Using the alignment algorithm for Tool A, detect the different segments.
-       4. Use the information on segments edit the original subtitle file.
-       5. Produce a synchronized subtitle file, _co_oCCur-original.srt_.
+       1. Read the original audio and modified audio.
+       2. Extract audio fingerprints from the audio files.
+       3. Compare the fingerprints and detect the different segments in the original content.
+       4. Adjust the subtitle file and generate an *in-sync* subtitle file.
        
        See it in action: 
        <iframe width="700" height="315" src="https://www.youtube.com/embed/i_HQIUoM6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-       
-   - **Tool B**<br />
-      ```css
-        ./co_oCCur -t B -o /path/to/modified/audio.wav -s /path/to/original/subtitle.srt 
-      ```
-      What happens next?
-      1. Set B as the tool to be used for synchronization.
-      2. Read the audio file and create the audio string.
-      3. Parse the subtitle file and create the subtitle string.
-      4. Using the alignment algorithm for Tool B, detect the different blocks.
-      4. Use the information on segments edit the original subtitle file.
-      5. Produce a synchronized subtitle file, _co_oCCur-original.srt_.
 
 <div class="section-title margtop3rem">
             <h2><span>What else can been done? </span></h2>
@@ -224,7 +192,7 @@ expected to refactor over time. There are several ideas and features that can be
 also a great feature to add in to our project. <br/>
 
 Also, contribution of any kind is more than welcome. Feel free to raise an issue tracker here: 
-<a href="https://github.com/sypai/co-oCCur/issues" target="_blank">
+<a href="https://github.com/CCExtractor/Subtitle-Resync/issues" target="_blank">
    here
    </a>.
  

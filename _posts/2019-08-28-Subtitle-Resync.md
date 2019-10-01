@@ -28,8 +28,8 @@ to create a synced subtitle file so that the viewer does not have any burden bef
 starts.
 
 <blockquote class="primary link1">
-<em><a href="https://github.com/sypai/co-oCCur" target="_blank">
-         https://github.com/sypai/co-oCCur
+<em><a href="https://github.com/CCExtractor/Subtitle-Resync" target="_blank">
+         https://github.com/CCExtractor/Subtitle-Resync
        </a></em>
 <br>
 </blockquote>
@@ -82,7 +82,7 @@ video. Using the time information of each segment we parse and adjust the subtit
 - **How are fingerprints compared?**<br>
 The naive way to compare two fingerprints is to XOR the hashes and count the number
 of non-zero bits in the result. If you have two identical fingerprints, the result will be zero.
- If you have two compately different fingerprints, you will see around 50% split between zero
+ If you have two completely different fingerprints, you will see around 50% split between zero
  and non-zero bits, i.e. the number of non-zero bits will be about 16 for every hash. Which results
  in very poor results. Obviously the fingerprints of the two files have different timings, thus the hashes we
  extract out of the original sample will have an offset that is relative to the modified sample. <br> <br>
@@ -135,14 +135,14 @@ in the project repository.
                <h2><span>Conclusion </span></h2>
   </div>
   I have developed this project during Google Summer of Code, 2019 which I was fortunate to participate in
-  under CCExtractor Development. Obviously a lot more can be done on this but I am glad that finally I
+  under CCExtractor Development. Obviously a lot more can be and will be done on this but I am glad that finally I
   have an open source project. I am grateful to my mentor <a href="https://github.com/cfsmp3" target="_blank">
   Carlos Fernandez Sanz </a> who gave me this opportunity and helped me throughout my journey.
   <br>
-  I hope that anyone reading this will check out the **co-oCCur** project and drop a few starts on me, or better yet, fork it!
+  I hope that anyone reading this will check out the **Subtitle-Resync** project and drop a few starts on me, or better yet, fork it!
 <blockquote class="primary link1">
-<em><a href="https://github.com/sypai/co-oCCur" target="_blank">
-         https://github.com/sypai/co-oCCur
+<em><a href="https://github.com/CCExtractor/Subtitle-Resync" target="_blank">
+         https://github.com/CCExtractor/Subtitle-Resync
        </a></em>
 <br>
 </blockquote>

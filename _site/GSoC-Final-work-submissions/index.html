@@ -219,7 +219,7 @@
 
 <span class="reading-time post-date" title="Estimated read time">
         
-        7 min read
+        5 min read
 </span>
                     </p>
                 
@@ -254,14 +254,14 @@
 <ul>
   <li>
     <p><strong>Project repository</strong>  <br />
- <a href="https://github.com/sypai/co-oCCur" target="_blank">
-  co-oCCur @ Github
+ <a href="https://github.com/CCExtractor/Subtitle-Resync" target="_blank">
+  Subtitle-Resync @ Github
 </a></p>
   </li>
   <li>
     <p><strong>Milestone &amp; deliverable Board</strong><br />
   <a href="https://trello.com/b/JQGOK4Yo/co-occursubtitlesynchronization" target="_blank">
-  co-oCCur @ Trello
+  Subtitle-Resync @ Trello
   </a></p>
   </li>
   <li>
@@ -285,7 +285,7 @@ CCExtractor Development
 </ul>
 
 <div class="section-title margtop3rem">
-            <h2><span>co-oCCur: High-speed subtitle synchronization </span></h2>
+            <h2><span>Subtitle-Resync: High-speed subtitle synchronization </span></h2>
 </div>
 <p>For an ideal subtitle file, the subtitles are perfectly aligned with
  the base audiovisual content. In other words, the audio and the
@@ -294,17 +294,12 @@ The misalignment of the subtitle files is the underlying problem
  that this project aims to solve so that the viewer does not have 
 any burden before the fun starts (this is what matters).</p>
 
-<p><strong>Tool A</strong> <br />
-Use case: Synchronization of subtitles between two versions
+<p><strong>Use case</strong> <br />
+Synchronization of subtitles between two versions
  (with and without commercials) of the same 
  audiovisual content. It takes as input the original audiovisual 
  content, the edited audiovisual content and the subtitles 
- document of the original audiovisual content.<br />
-<strong>Tool B</strong> <br />
-Use case: Synchronization of subtitles between two versions
-of the same audiovisual content in the absence of the original
-content. It takes as input the modified audiovisual content
-and the subtitle document for the original audiovisual content.</p>
+ document of the original audiovisual content.<br /></p>
 
 <div class="section-title margtop3rem">
             <h2><span>What has been done? </span></h2>
@@ -344,10 +339,12 @@ chromaprint
  webrtc
  </a> for <em>Tool B</em>.</p>
 
-<p><strong>Alignment Algorithms</strong> ️<br /></p>
+<p><strong>Alignment Algorithm</strong> ️<br /></p>
 <ul>
   <li>
-    <p><strong>Tool A</strong>   ✔<br />
+    <p><strong>Behind the scenes!</strong>   ✔<br />
+ There is a lot going on under the hood. Everything about
+ the working and more can be found in this post.
   Internally, the audio fingerprints that dactylogram generates are
   array of 32-bit integer. We don’t really work with them in this 
   form, but the hashes look something like this:</p>
@@ -384,40 +381,23 @@ chromaprint
 Once the segments are identified we use SiftSRT to edit the subtitle document and
   create a perfectly aligned subtitle file.</p>
   </li>
-  <li>
-    <p>Tool B  <br />
- For this tool we have two strings containing speech information. 1 represents 
- the presence of speech in th 10ms window while the absence of speech is represented by
- 0;
- The proposed algorithm for this tool, in  n simple terms, for each offset, 
- will take a dot product of one string with the offset version of the other.
- Computing this naively would result in an O
- (n^2)​ solution. And “High speed is
- really a priority” is clearly mentioned in the project’s idea page.​ ​ So, we will use
- the Fast Fourier Transform (FFT), bringing the complexity down to​ ​ O(n log n)​ .
- We will score the alignment based on the number of matching 1’s i.e. the
- summation at all values of time of the product of both the strings,
-  This is ​ Convolution​. So we can rephrase this problem as, 
-  find the index τ which maximizes the value of the convolution of the sequences
-  This has been successfully developed but it has not produced results.</p>
-  </li>
 </ul>
 
 <div class="section-title margtop3rem">
             <h2><span>Where do we stand? </span></h2>
 </div>
 
-<p>At this point, we have a perfectly working Tool A, capable of doing 
+<p>At this point, we have a perfectly working tool, capable of doing
 exactly what it is supposed to do. <br /> 
 <strong>Installation</strong><br /></p>
 <ul>
   <li>Clone the repository from 
-<a href="https://github.com/sypai/co-oCCur" target="_blank">
-   co-oCCur @ Github
+<a href="https://github.com/CCExtractor/Subtitle-Resync" target="_blank">
+   Subtitle-Resync @ Github
  </a>
 <br />
     <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>  <span class="nt">git</span> <span class="nt">clone</span> <span class="nt">https</span><span class="o">://</span><span class="nt">github</span><span class="nc">.com</span><span class="o">/</span><span class="nt">sypai</span><span class="o">/</span><span class="nt">co-oCCur</span>
+</pre></td><td class="rouge-code"><pre>  <span class="nt">git</span> <span class="nt">clone</span> <span class="nt">https</span><span class="o">://</span><span class="nt">github</span><span class="nc">.com</span><span class="o">/</span><span class="nt">CCExtractor</span><span class="o">/</span><span class="nt">Subtitle-Resync</span><span class="nc">.git</span>
 </pre></td></tr></tbody></table></code></pre></div>    </div>
   </li>
   <li>Navigate to <code class="highlighter-rouge">install </code>directory and run <code class="highlighter-rouge">build.sh</code>:<br />
@@ -434,46 +414,31 @@ exactly what it is supposed to do. <br />
 <p><strong>Usage</strong><br />
  For a complete list of options and parameters, please
 go through the project’s 
-<a href="https://github.com/sypai/co-oCCur/blob/master/README.md" target="_blank">
+<a href="https://github.com/CCExtractor/Subtitle-Resync/blob/master/README.md" target="_blank">
      README
    </a>.</p>
 <ul>
-  <li>Sync!<br />
+  <li>Running Subtitle-Resync without any instruments lists all the parameters that are to be passed.<br />
     <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>   <span class="o">./</span><span class="nt">co_oCCur</span> <span class="nt">-tool</span> <span class="o">[</span><span class="nt">tool</span> <span class="nt">options</span><span class="o">]</span> <span class="o">&lt;</span><span class="nt">tool</span> <span class="nt">specific</span> <span class="nt">arguments</span><span class="o">&gt;</span>
+</pre></td><td class="rouge-code"><pre>   <span class="o">./</span><span class="nt">resync</span> <span class="nt">-o</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">original</span><span class="o">/</span><span class="nt">audio</span><span class="nc">.wav</span> <span class="nt">-m</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">modified</span><span class="o">/</span><span class="nt">audio</span><span class="nc">.wav</span> <span class="nt">-s</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">original</span><span class="o">/</span><span class="nt">subtitle</span><span class="nc">.srt</span>
 </pre></td></tr></tbody></table></code></pre></div>    </div>
 
     <p><img class="featured-image img-fluid" src="/assets/images/cooccur_wo_args.png" alt="w/0-args" /></p>
   </li>
-  <li><strong>Tool A</strong><br />
+  <li><strong>Sync!</strong><br />
     <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>  <span class="o">./</span><span class="nt">co_oCCur</span> <span class="nt">-t</span> <span class="nt">A</span> <span class="nt">-o</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">original</span><span class="o">/</span><span class="nt">audio</span><span class="nc">.wav</span> <span class="nt">-m</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">modified</span><span class="o">/</span><span class="nt">audio</span><span class="nc">.wav</span> <span class="nt">-s</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">original</span><span class="o">/</span><span class="nt">subtitle</span><span class="nc">.srt</span> 
+</pre></td><td class="rouge-code"><pre>  <span class="o">./</span><span class="nt">resync</span> <span class="nt">-o</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">original</span><span class="o">/</span><span class="nt">audio</span><span class="nc">.wav</span> <span class="nt">-m</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">modified</span><span class="o">/</span><span class="nt">audio</span><span class="nc">.wav</span> <span class="nt">-s</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">original</span><span class="o">/</span><span class="nt">subtitle</span><span class="nc">.srt</span>
 </pre></td></tr></tbody></table></code></pre></div>    </div>
     <p>What will this trigger?</p>
     <ol>
-      <li>Set Tool A to be used for synchronization.</li>
-      <li>Read the two audio files and generate audio fingerprints for both of them.</li>
-      <li>Using the alignment algorithm for Tool A, detect the different segments.</li>
-      <li>Use the information on segments edit the original subtitle file.</li>
-      <li>Produce a synchronized subtitle file, <em>co_oCCur-original.srt</em>.</li>
+      <li>Read the original audio and modified audio.</li>
+      <li>Extract audio fingerprints from the audio files.</li>
+      <li>Compare the fingerprints and detect the different segments in the original content.</li>
+      <li>Adjust the subtitle file and generate an <em>in-sync</em> subtitle file.</li>
     </ol>
 
     <p>See it in action:</p>
     <iframe width="700" height="315" src="https://www.youtube.com/embed/i_HQIUoM6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-  </li>
-  <li><strong>Tool B</strong><br />
-    <div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>   <span class="o">./</span><span class="nt">co_oCCur</span> <span class="nt">-t</span> <span class="nt">B</span> <span class="nt">-o</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">modified</span><span class="o">/</span><span class="nt">audio</span><span class="nc">.wav</span> <span class="nt">-s</span> <span class="o">/</span><span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">original</span><span class="o">/</span><span class="nt">subtitle</span><span class="nc">.srt</span> 
-</pre></td></tr></tbody></table></code></pre></div>    </div>
-    <p>What happens next?</p>
-    <ol>
-      <li>Set B as the tool to be used for synchronization.</li>
-      <li>Read the audio file and create the audio string.</li>
-      <li>Parse the subtitle file and create the subtitle string.</li>
-      <li>Using the alignment algorithm for Tool B, detect the different blocks.</li>
-      <li>Use the information on segments edit the original subtitle file.</li>
-      <li>Produce a synchronized subtitle file, <em>co_oCCur-original.srt</em>.</li>
-    </ol>
   </li>
 </ul>
 
@@ -489,7 +454,7 @@ also a great feature to add in to our project. <br /></li>
 </ul>
 
 <p>Also, contribution of any kind is more than welcome. Feel free to raise an issue tracker here: 
-<a href="https://github.com/sypai/co-oCCur/issues" target="_blank">
+<a href="https://github.com/CCExtractor/Subtitle-Resync/issues" target="_blank">
    here
    </a>.</p>
 
